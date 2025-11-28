@@ -51,8 +51,41 @@
     <!-- Catalog Section -->
     <section class="catalog-section">
         <div class="container">
+            <!-- Поиск и фильтры -->
+            <div class="catalog-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input" placeholder="Поиск по названию или описанию...">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="sort-container">
+                        <label for="sort-select" class="control-label">Сортировка:</label>
+                        <select id="sort-select" class="sort-select">
+                            <option value="">Без сортировки</option>
+                            <option value="price-asc">По цене (возрастание)</option>
+                            <option value="price-desc">По цене (убывание)</option>
+                            <option value="name-asc">По названию (А-Я)</option>
+                            <option value="name-desc">По названию (Я-А)</option>
+                            <option value="rating-asc">По рейтингу (возрастание)</option>
+                            <option value="rating-desc">По рейтингу (убывание)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="categories-container">
+                        <label class="control-label">Категории:</label>
+                        <div class="categories-list" id="categories-list">
+                            <!-- Категории будут сгенерированы через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="catalog-filters">
-                <h2 class="filters-title">Фильтры и сортировка</h2>
+                <h2 class="filters-title">Демонстрация методов массивов</h2>
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-method="all">Все услуги</button>
                     <button class="filter-btn" data-method="filter-category">Filter: Категория "Разработка"</button>

@@ -167,6 +167,11 @@ const servicesCatalog = [
     }
 ];
 
+// Глобальные переменные для фильтров
+let currentSearchQuery = '';
+let currentSortOption = '';
+let selectedCategories = [];
+
 // Функция для извлечения числового значения цены
 function extractPrice(priceString) {
     const match = priceString.match(/[\d\s]+/);
@@ -174,6 +179,92 @@ function extractPrice(priceString) {
         return parseInt(match[0].replace(/\s/g, ''), 10);
     }
     return 0;
+}
+
+// Функция для получения всех уникальных категорий
+function getAllCategories() {
+    const categories = [...new Set(servicesCatalog.map(service => service.category))];
+    return categories.sort();
+}
+
+// Функция поиска по названию или описанию
+function searchServices(query, services) {
+    if (!query.trim()) {
+        return services;
+    }
+    
+    const lowerQuery = query.toLowerCase();
+    return services.filter(service => {
+        const nameMatch = service.name.toLowerCase().includes(lowerQuery);
+        const descMatch = service.description.toLowerCase().includes(lowerQuery);
+        return nameMatch || descMatch;
+    });
+}
+
+// Функция фильтрации по категориям
+function filterByCategories(services) {
+    if (selectedCategories.length === 0) {
+        return services;
+    }
+    
+    return services.filter(service => selectedCategories.includes(service.category));
+}
+
+// Функция сортировки
+function sortServices(services, sortOption) {
+    if (!sortOption) {
+        return services;
+    }
+    
+    const sorted = [...services];
+    
+    switch (sortOption) {
+        case 'price-asc':
+            return sorted.sort((a, b) => {
+                const priceA = extractPrice(a.price);
+                const priceB = extractPrice(b.price);
+                return priceA - priceB;
+            });
+        
+        case 'price-desc':
+            return sorted.sort((a, b) => {
+                const priceA = extractPrice(a.price);
+                const priceB = extractPrice(b.price);
+                return priceB - priceA;
+            });
+        
+        case 'name-asc':
+            return sorted.sort((a, b) => a.name.localeCompare(b.name, 'ru'));
+        
+        case 'name-desc':
+            return sorted.sort((a, b) => b.name.localeCompare(a.name, 'ru'));
+        
+        case 'rating-asc':
+            return sorted.sort((a, b) => a.rating - b.rating);
+        
+        case 'rating-desc':
+            return sorted.sort((a, b) => b.rating - a.rating);
+        
+        default:
+            return sorted;
+    }
+}
+
+// Основная функция фильтрации и сортировки
+function applyFilters() {
+    let filtered = servicesCatalog;
+    
+    // Применяем поиск
+    filtered = searchServices(currentSearchQuery, filtered);
+    
+    // Применяем фильтр по категориям
+    filtered = filterByCategories(filtered);
+    
+    // Применяем сортировку
+    filtered = sortServices(filtered, currentSortOption);
+    
+    // Отображаем результат
+    renderCatalog(filtered);
 }
 
 // Функции обработки массива различными методами
@@ -251,7 +342,16 @@ function renderCatalog(data = servicesCatalog) {
     container.innerHTML = '';
 
     if (data.length === 0) {
-        container.innerHTML = '<p class="no-results">Услуги не найдены</p>';
+        container.innerHTML = `
+            <div class="no-results-container">
+                <svg class="no-results-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+                    <path d="M32 20V36M32 44H32.02" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <p class="no-results-title">Услуги не найдены</p>
+                <p class="no-results-text">Попробуйте изменить параметры поиска или фильтры</p>
+            </div>
+        `;
         return;
     }
 
@@ -285,7 +385,77 @@ function renderCatalog(data = servicesCatalog) {
     });
 }
 
-// Обработчик клика на кнопки фильтров
+// Функция для создания списка категорий
+function renderCategories() {
+    const categoriesList = document.getElementById('categories-list');
+    if (!categoriesList) return;
+    
+    const categories = getAllCategories();
+    
+    categoriesList.innerHTML = categories.map(category => {
+        const isSelected = selectedCategories.includes(category);
+        return `
+            <label class="category-checkbox ${isSelected ? 'checked' : ''}">
+                <input type="checkbox" value="${category}" ${isSelected ? 'checked' : ''}>
+                <span class="checkbox-label">${category}</span>
+            </label>
+        `;
+    }).join('');
+    
+    // Добавляем обработчики событий для чекбоксов
+    const checkboxes = categoriesList.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+            const category = e.target.value;
+            if (e.target.checked) {
+                if (!selectedCategories.includes(category)) {
+                    selectedCategories.push(category);
+                }
+            } else {
+                selectedCategories = selectedCategories.filter(cat => cat !== category);
+            }
+            
+            // Обновляем визуальное состояние
+            const label = e.target.closest('.category-checkbox');
+            if (e.target.checked) {
+                label.classList.add('checked');
+            } else {
+                label.classList.remove('checked');
+            }
+            
+            applyFilters();
+        });
+    });
+}
+
+// Обработчик поиска
+function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+    
+    // Обработка ввода с задержкой (debounce)
+    let searchTimeout;
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearchQuery = e.target.value;
+            applyFilters();
+        }, 300);
+    });
+}
+
+// Обработчик сортировки
+function setupSort() {
+    const sortSelect = document.getElementById('sort-select');
+    if (!sortSelect) return;
+    
+    sortSelect.addEventListener('change', (e) => {
+        currentSortOption = e.target.value;
+        applyFilters();
+    });
+}
+
+// Обработчик клика на кнопки фильтров (методы массивов)
 function setupFilterButtons() {
     const buttons = document.querySelectorAll('.filter-btn');
     
@@ -295,6 +465,22 @@ function setupFilterButtons() {
             buttons.forEach(btn => btn.classList.remove('active'));
             // Добавляем активный класс к нажатой кнопке
             button.classList.add('active');
+            
+            // Сбрасываем поиск и фильтры при использовании методов массивов
+            const searchInput = document.getElementById('search-input');
+            const sortSelect = document.getElementById('sort-select');
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox input[type="checkbox"]');
+            
+            if (searchInput) searchInput.value = '';
+            if (sortSelect) sortSelect.value = '';
+            categoryCheckboxes.forEach(cb => {
+                cb.checked = false;
+                cb.closest('.category-checkbox').classList.remove('checked');
+            });
+            
+            currentSearchQuery = '';
+            currentSortOption = '';
+            selectedCategories = [];
             
             // Получаем метод из data-атрибута
             const method = button.getAttribute('data-method');
@@ -310,7 +496,10 @@ function setupFilterButtons() {
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-    renderCatalog();
+    renderCategories();
+    setupSearch();
+    setupSort();
     setupFilterButtons();
+    applyFilters();
 });
 
