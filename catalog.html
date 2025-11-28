@@ -51,6 +51,21 @@
     <!-- Catalog Section -->
     <section class="catalog-section">
         <div class="container">
+            <div class="catalog-filters">
+                <h2 class="filters-title">Фильтры и сортировка</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-method="all">Все услуги</button>
+                    <button class="filter-btn" data-method="filter-category">Filter: Категория "Разработка"</button>
+                    <button class="filter-btn" data-method="filter-rating">Filter: Рейтинг ≥ 4.8</button>
+                    <button class="filter-btn" data-method="sort-price">Sort: По цене (возр.)</button>
+                    <button class="filter-btn" data-method="sort-rating">Sort: По рейтингу (убыв.)</button>
+                    <button class="filter-btn" data-method="map">Map: Добавить метку</button>
+                    <button class="filter-btn" data-method="slice">Slice: Первые 7</button>
+                    <button class="filter-btn" data-method="reverse">Reverse: Обратный порядок</button>
+                    <button class="filter-btn" data-method="filter-sort">Filter+Sort: Дизайн по рейтингу</button>
+                    <button class="filter-btn" data-method="filter-duration">Filter: ≤ 4 недель</button>
+                </div>
+            </div>
             <div id="catalog-container" class="catalog-grid">
                 <!-- Карточки будут сгенерированы через JavaScript -->
             </div>

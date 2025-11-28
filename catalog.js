@@ -167,14 +167,95 @@ const servicesCatalog = [
     }
 ];
 
+// Функция для извлечения числового значения цены
+function extractPrice(priceString) {
+    const match = priceString.match(/[\d\s]+/);
+    if (match) {
+        return parseInt(match[0].replace(/\s/g, ''), 10);
+    }
+    return 0;
+}
+
+// Функции обработки массива различными методами
+const arrayMethods = {
+    // Все услуги (исходный массив)
+    'all': (arr) => arr,
+
+    // Filter: фильтрация по категории "Разработка"
+    'filter-category': (arr) => {
+        return arr.filter(service => service.category === 'Разработка');
+    },
+
+    // Filter: фильтрация по рейтингу >= 4.8
+    'filter-rating': (arr) => {
+        return arr.filter(service => service.rating >= 4.8);
+    },
+
+    // Sort: сортировка по цене (по возрастанию)
+    'sort-price': (arr) => {
+        return [...arr].sort((a, b) => {
+            const priceA = extractPrice(a.price);
+            const priceB = extractPrice(b.price);
+            return priceA - priceB;
+        });
+    },
+
+    // Sort: сортировка по рейтингу (по убыванию)
+    'sort-rating': (arr) => {
+        return [...arr].sort((a, b) => b.rating - a.rating);
+    },
+
+    // Map: добавление метки "Популярный" для услуг с рейтингом >= 4.9
+    'map': (arr) => {
+        return arr.map(service => ({
+            ...service,
+            name: service.rating >= 4.9 ? `${service.name} ⭐ Популярный` : service.name
+        }));
+    },
+
+    // Slice: первые 7 услуг
+    'slice': (arr) => {
+        return arr.slice(0, 7);
+    },
+
+    // Reverse: обратный порядок
+    'reverse': (arr) => {
+        return [...arr].reverse();
+    },
+
+    // Filter + Sort: фильтрация по категории "Дизайн" и сортировка по рейтингу
+    'filter-sort': (arr) => {
+        return arr
+            .filter(service => service.category === 'Дизайн')
+            .sort((a, b) => b.rating - a.rating);
+    },
+
+    // Filter: услуги с длительностью <= 4 недель
+    'filter-duration': (arr) => {
+        return arr.filter(service => {
+            const match = service.duration.match(/(\d+)/);
+            if (match) {
+                const weeks = parseInt(match[1], 10);
+                return weeks <= 4;
+            }
+            return false;
+        });
+    }
+};
+
 // Функция для генерации карточек товаров
-function renderCatalog() {
+function renderCatalog(data = servicesCatalog) {
     const container = document.getElementById('catalog-container');
     if (!container) return;
 
     container.innerHTML = '';
 
-    servicesCatalog.forEach(service => {
+    if (data.length === 0) {
+        container.innerHTML = '<p class="no-results">Услуги не найдены</p>';
+        return;
+    }
+
+    data.forEach(service => {
         const card = document.createElement('div');
         card.className = 'catalog-card';
         card.innerHTML = `
@@ -204,6 +285,32 @@ function renderCatalog() {
     });
 }
 
+// Обработчик клика на кнопки фильтров
+function setupFilterButtons() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Убираем активный класс у всех кнопок
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем активный класс к нажатой кнопке
+            button.classList.add('active');
+            
+            // Получаем метод из data-атрибута
+            const method = button.getAttribute('data-method');
+            
+            // Применяем метод к массиву
+            if (arrayMethods[method]) {
+                const filteredData = arrayMethods[method](servicesCatalog);
+                renderCatalog(filteredData);
+            }
+        });
+    });
+}
+
 // Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', renderCatalog);
+document.addEventListener('DOMContentLoaded', () => {
+    renderCatalog();
+    setupFilterButtons();
+});
 
