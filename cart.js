@@ -1,6 +1,11 @@
 // Конфигурация API
 const API_BASE_URL = 'http://localhost:3000';
 
+const auth = window.auth || {
+    getCurrentUser: () => null
+};
+
+
 // Функция для извлечения числового значения цены
 function extractPrice(priceString) {
     const match = priceString.match(/[\d\s]+/);
@@ -256,6 +261,7 @@ async function removeFromCart(cartId) {
     if (!confirm('Вы уверены, что хотите удалить этот товар из корзины?')) {
         return;
     }
+
     
     try {
         const response = await fetch(`${API_BASE_URL}/cart/${cartId}`, {
@@ -280,6 +286,13 @@ async function checkout() {
     if (!confirm('Вы уверены, что хотите оформить заказ?')) {
         return;
     }
+    const currentUser = auth.getCurrentUser ? auth.getCurrentUser() : null;
+    if (!currentUser) {
+        alert("??? ?????????? ??????? ?????????? ? ???????? ? ?????? ??????????.");
+        window.location.href = "login.html";
+        return;
+    }
+
     
     try {
         // Получаем все элементы корзины
@@ -317,6 +330,9 @@ async function checkout() {
         
         // Создаем заказ в коллекции orders
         const order = {
+            userId: currentUser?.id || null,
+            userEmail: currentUser?.email || null,
+            username: currentUser?.username || null,
             items: orderItems,
             totalPrice: totalPrice,
             totalItems: cart.reduce((sum, item) => sum + (item.quantity || 1), 0),

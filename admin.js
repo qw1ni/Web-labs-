@@ -1,6 +1,12 @@
 // Конфигурация API
 const API_BASE_URL = 'http://localhost:3000';
 
+const auth = window.auth || {
+    getCurrentUser: () => null,
+    saveCurrentUser: () => {},
+    isAdmin: () => false
+};
+
 // Текущий администратор
 let currentAdmin = null;
 
@@ -32,7 +38,7 @@ function setupLogin() {
             } else {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
-                    errorElement.textContent = 'Неверный формат email';
+                    errorElement.textContent = '???????? ?????? email';
                     emailInput.classList.add('error');
                 } else {
                     errorElement.textContent = '';
@@ -40,6 +46,11 @@ function setupLogin() {
                 }
             }
         });
+    }
+    
+    const currentUser = auth.getCurrentUser();
+    if (emailInput && currentUser?.email) {
+        emailInput.value = currentUser.email;
     }
 }
 
@@ -49,55 +60,68 @@ async function handleLogin() {
     const errorElement = document.getElementById('admin-email-error');
     
     if (!email) {
-        errorElement.textContent = 'Введите email';
+        errorElement.textContent = '??????? email';
         return;
     }
     
     try {
-        const response = await fetch(`${API_BASE_URL}/users?email=${email}`);
-        if (response.ok) {
-            const users = await response.json();
-            if (users.length > 0) {
-                const user = users[0];
-                // Проверяем роль администратора
-                if (user.role === 'администратор' || user.role === 'admin' || user.role === 'Администратор') {
-                    currentAdmin = user;
-                    sessionStorage.setItem('adminEmail', email);
-                    showAdminPanel();
-                } else {
-                    errorElement.textContent = 'Доступ запрещен. Только администраторы могут войти.';
-                }
-            } else {
-                errorElement.textContent = 'Пользователь с таким email не найден';
+        const response = await fetch(`${API_BASE_URL}/users?email=${encodeURIComponent(email)}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error ${response.status}`);
+        }
+
+        const users = await response.json();
+        const user = users.find((u) => u.email === email);
+
+        if (user && auth.isAdmin(user)) {
+            currentAdmin = user;
+            sessionStorage.setItem('adminEmail', email);
+            if (auth.saveCurrentUser) {
+                auth.saveCurrentUser(user);
             }
+            showAdminPanel();
+        } else if (user) {
+            errorElement.textContent = '?????? ????????? ?????? ?????????????.';
+        } else {
+            errorElement.textContent = '???????????? ? ????? email ?? ??????';
         }
     } catch (error) {
-        console.error('Ошибка при входе:', error);
-        errorElement.textContent = 'Ошибка при проверке доступа. Убедитесь, что JSON Server запущен.';
+        console.error('?????? ??? ?????:', error);
+        errorElement.textContent = '?? ??????? ???????? ?????. ?????????, ??? JSON Server ???????.';
     }
 }
 
 // Проверка сессии администратора
 function checkAdminSession() {
+    const storedUser = auth.getCurrentUser();
+    if (storedUser && auth.isAdmin(storedUser)) {
+        currentAdmin = storedUser;
+        showAdminPanel();
+        return;
+    }
+
     const adminEmail = sessionStorage.getItem('adminEmail');
     if (adminEmail) {
-        // Проверяем, что пользователь все еще администратор
-        fetch(`${API_BASE_URL}/users?email=${adminEmail}`)
+        fetch(`${API_BASE_URL}/users?email=${encodeURIComponent(adminEmail)}`)
             .then(response => response.json())
             .then(users => {
-                if (users.length > 0) {
+                if (Array.isArray(users) && users.length > 0) {
                     const user = users[0];
-                    if (user.role === 'администратор' || user.role === 'admin' || user.role === 'Администратор') {
+                    if (auth.isAdmin(user)) {
                         currentAdmin = user;
+                        if (auth.saveCurrentUser) {
+                            auth.saveCurrentUser(user);
+                        }
                         showAdminPanel();
                     }
                 }
             })
             .catch(error => {
-                console.error('Ошибка при проверке сессии:', error);
+                console.error('?????? ??? ???????? ??????:', error);
             });
     }
 }
+
 
 // Показать админ-панель
 function showAdminPanel() {

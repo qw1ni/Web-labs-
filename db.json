@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Разработка корпоративного сайта",
       "description": "Создание современного корпоративного сайта с адаптивным дизайном и интеграцией CRM-систем",
-      "price": "от 150 000 ₽",
+      "price": "от 50 000 ₽",
       "duration": "4-6 недель",
       "category": "Разработка",
       "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
@@ -234,24 +234,67 @@
     }
   ],
   "cart": [],
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "adminPro",
+      "firstname": "Aleksey",
+      "lastname": "Adminov",
+      "middlename": "",
+      "phone": "+375 (29) 123-45-67",
+      "email": "admin@paradogs.by",
+      "birthdate": "1990-01-01",
+      "role": "admin",
+      "password": "Admin#2024",
+      "registeredAt": "2024-10-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "username": "buyerOne",
+      "firstname": "Ivan",
+      "lastname": "Petrov",
+      "middlename": "Alekseevich",
+      "phone": "+375 (44) 555-55-55",
+      "email": "ivan.petrov@example.com",
+      "birthdate": "1995-05-05",
+      "role": "customer",
+      "password": "Buyer#2024",
+      "registeredAt": "2024-10-05T09:00:00.000Z"
+    }
+  ],
   "orders": [
     {
+      "id": 1,
+      "userId": 2,
+      "userEmail": "ivan.petrov@example.com",
+      "username": "buyerOne",
       "items": [
         {
           "serviceId": 2,
-          "serviceName": "Интернет-магазин на платформе",
-          "servicePrice": "от 250 000 ₽",
+          "serviceName": "Internet-magazin pod klyuch",
+          "servicePrice": "ot 250 000 rub.",
           "quantity": 1,
           "itemTotal": 250000
         }
       ],
       "totalPrice": 250000,
       "totalItems": 1,
-      "orderDate": "2025-11-28T21:21:06.286Z",
-      "status": "оформлен",
-      "id": 1
+      "orderDate": "2024-11-28T21:21:06.286Z",
+      "status": "paid"
     }
   ],
-  "feedback": []
+  "feedback": [
+    {
+      "id": 1,
+      "serviceId": 2,
+      "serviceName": "Internet-magazin pod klyuch",
+      "userId": 2,
+      "userEmail": "ivan.petrov@example.com",
+      "username": "buyerOne",
+      "rating": 5,
+      "comment": "Servis otrabotal otlichno, podrobnyy plan i bystraya integratsiya.",
+      "date": "2024-11-29T10:00:00.000Z",
+      "status": "published"
+    }
+  ]
 }

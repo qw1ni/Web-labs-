@@ -1,6 +1,39 @@
 // Конфигурация API
 const API_BASE_URL = 'http://localhost:3000';
 
+// helpers for storing the current user between pages
+const auth = window.auth || {
+    getCurrentUser: () => {
+        try {
+            const raw = localStorage.getItem('currentUser');
+            return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+            console.warn('Unable to read current user', e);
+            return null;
+        }
+    },
+    saveCurrentUser: (user) => {
+        try {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+        } catch (e) {
+            console.warn('Unable to save user', e);
+        }
+    },
+    clearCurrentUser: () => {
+        localStorage.removeItem('currentUser');
+    },
+    isAdmin: (user) => {
+        const role = (user?.role || "").toLowerCase();
+        const adminRoles = ['admin', 'administrator', 'администратор'];
+        return adminRoles.includes(role);
+    },
+    isCustomer: (user) => {
+        const role = (user?.role || "").toLowerCase();
+        const customerRoles = ['customer', 'client', 'покупатель', 'клиент'];
+        return customerRoles.includes(role);
+    }
+};
+
 // TOP-100 самых распространенных паролей 2024 года
 const TOP_PASSWORDS = [
     'password', '123456', '123456789', '12345678', '12345', '1234567', '1234567890',
@@ -519,13 +552,16 @@ async function checkFormValidity() {
     if (registerBtn) {
         registerBtn.disabled = !isValid;
     }
+
+    return isValid;
 }
 
 // Обработка отправки формы
 async function handleSubmit(e) {
     e.preventDefault();
     
-    if (!checkFormValidity()) {
+    const isValid = await checkFormValidity();
+    if (!isValid) {
         return;
     }
     
@@ -541,7 +577,7 @@ async function handleSubmit(e) {
         birthdate: document.getElementById('birthdate').value,
         username: document.getElementById('username').value.trim(),
         password: password,
-        role: 'покупатель',
+        role: 'customer',
         registeredAt: new Date().toISOString()
     };
     
@@ -555,13 +591,16 @@ async function handleSubmit(e) {
         });
         
         if (response.ok) {
-            alert('Регистрация успешна!');
+            const createdUser = await response.json();
+            auth.saveCurrentUser(createdUser);
+            alert('??????????? ???????!');
             window.location.href = 'catalog.html';
         } else {
             const error = await response.json();
-            alert('Ошибка регистрации: ' + (error.message || 'Неизвестная ошибка'));
+            alert('?????? ???????????: ' + (error.message || '??????????? ??????'));
         }
-    } catch (error) {
+
+} catch (error) {
         console.error('Ошибка при регистрации:', error);
         alert('Не удалось зарегистрироваться. Убедитесь, что JSON Server запущен.');
     }
