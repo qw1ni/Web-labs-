@@ -33,6 +33,10 @@
                         <a href="index.html#portfolio" style="color: black;">Портфолио</a>
                     </nav>
                     <nav class="header-nav header-nav--right">
+                        <a href="favorites.html" style="color: black;">Избранное</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="cart.html" style="color: black;">Корзина</a>
+                        <span class="divider" style="background-color: black;"></span>
                         <a href="index.html#contacts" style="color: black;">Контакты</a>
                         <span class="divider" style="background-color: black;"></span>
                         <a href="tel:+74951234567" style="color: black;">8 495 123 – 45 – 67</a>
@@ -82,6 +86,46 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Расширенные фильтры -->
+                <div class="advanced-filters">
+                    <h3 class="advanced-filters-title">Расширенные фильтры</h3>
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label for="filter-rating-min" class="filter-label">Рейтинг от:</label>
+                            <input type="number" id="filter-rating-min" class="filter-input" min="0" max="5" step="0.1" placeholder="0">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-rating-max" class="filter-label">Рейтинг до:</label>
+                            <input type="number" id="filter-rating-max" class="filter-input" min="0" max="5" step="0.1" placeholder="5">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-price-min" class="filter-label">Цена от (₽):</label>
+                            <input type="number" id="filter-price-min" class="filter-input" min="0" placeholder="0">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-price-max" class="filter-label">Цена до (₽):</label>
+                            <input type="number" id="filter-price-max" class="filter-input" min="0" placeholder="1000000">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-duration" class="filter-label">Длительность:</label>
+                            <select id="filter-duration" class="filter-select">
+                                <option value="">Все</option>
+                                <option value="1-2 недели">1-2 недели</option>
+                                <option value="2-3 недели">2-3 недели</option>
+                                <option value="3-4 недели">3-4 недели</option>
+                                <option value="4-5 недель">4-5 недель</option>
+                                <option value="4-6 недель">4-6 недель</option>
+                                <option value="5-6 недель">5-6 недель</option>
+                                <option value="6-8 недель">6-8 недель</option>
+                                <option value="8-12 недель">8-12 недель</option>
+                                <option value="10-14 недель">10-14 недель</option>
+                                <option value="Ежемесячно">Ежемесячно</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="reset-filters-btn" class="reset-filters-btn">Сбросить фильтры</button>
+                </div>
             </div>
 
             <div class="catalog-filters">
@@ -101,6 +145,11 @@
             </div>
             <div id="catalog-container" class="catalog-grid">
                 <!-- Карточки будут сгенерированы через JavaScript -->
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination-container" id="pagination-container">
+                <!-- Пагинация будет сгенерирована через JavaScript -->
             </div>
         </div>
     </section>
