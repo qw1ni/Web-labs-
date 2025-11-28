@@ -853,36 +853,201 @@ img {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
     .container {
-        padding: 0 50px;
+        padding: 0 56px;
+    }
+
+    .header .container {
+        padding: 10px 28px 8px;
+    }
+
+    .hero {
+        height: 820px;
+        min-height: 820px;
+    }
+
+    .hero-title {
+        left: 56px;
+        max-width: 460px;
+    }
+
+    .hero-controls {
+        left: 56px;
+        bottom: 170px;
+    }
+
+    .hero-dots {
+        right: 56px;
+        bottom: 55px;
+    }
+
+    .about-left {
+        padding: 54px 48px 34px 0;
+    }
+
+    .about-right {
+        padding: 54px 0 34px 90px;
     }
 
     .case-grid {
-        grid-template-columns: 1fr;
+        padding: 10px 50px 0;
+    }
+
+    .case-yellow {
+        padding-right: 340px;
+        min-height: 500px;
+    }
+
+    .case-red {
+        right: 50px;
+        width: 320px;
+    }
+
+    .case-item img {
+        left: 34%;
+        top: 150px;
+        width: 430px;
+    }
+
+    .case-title {
+        font-size: 64px;
+        letter-spacing: 4px;
+    }
+
+    .case-metrics {
+        padding: 0 50px;
+    }
+
+    .case-url {
+        padding: 0 56px;
+    }
+
+    .blog {
+        padding: 70px 0 54px;
+    }
+
+    .blog-card {
+        min-height: 380px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 18px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    .header .container {
+        padding: 10px 22px 8px;
+    }
+
+    .hero {
+        height: 720px;
+        min-height: 720px;
+    }
+
+    .hero-title {
+        left: 40px;
+        max-width: 420px;
+    }
+
+    .hero-controls {
+        left: 40px;
+        bottom: 150px;
+    }
+
+    .case-grid {
+        padding: 0 24px;
+    }
+
+    .case-grid::before,
+    .case-grid::after {
+        display: none;
     }
 
     .case-item {
         min-height: auto;
+        padding: 60px 24px 36px;
     }
 
     .case-item img {
         position: static;
         width: 100%;
-        max-width: 400px;
+        max-width: 420px;
         height: auto;
+        margin: 26px auto 0;
     }
 
-    .blog-grid {
-        grid-template-columns: 1fr;
+    .case-yellow {
+        padding-right: 24px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-right {
+    .case-red {
+        position: static;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        background: var(--red-bright);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
         text-align: left;
+        padding: 28px 24px;
+        margin-top: 18px;
+        pointer-events: auto;
+    }
+
+    .case-red .case-content h3 {
+        max-width: none;
+    }
+
+    .case-details {
+        padding: 26px 0;
+    }
+
+    .case-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .case-title {
+        font-size: 50px;
+        letter-spacing: 3px;
+        text-align: left;
+    }
+
+    .case-url {
+        padding: 0 24px;
+        margin: 12px 0 24px;
+        text-align: left;
+    }
+
+    .case-metrics {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin: 10px 0 0;
+        padding: 0 12px;
+        border-top: 2px solid var(--black);
+        border-bottom: 2px solid var(--black);
+    }
+
+    .metric {
+        align-items: flex-start;
+        gap: 10px;
+        padding: 18px 12px;
+        border-bottom: 1px solid var(--black);
+        flex-direction: column;
+    }
+
+    .metric:last-child {
+        border-bottom: none;
     }
 
     .about-grid {
@@ -894,66 +1059,181 @@ img {
 
     .about-left {
         border-right: none;
-        padding: 50px 40px;
+        padding: 42px 32px;
     }
 
     .about-right {
-        padding: 40px;
+        padding: 32px;
+        border-left: none;
         border-top: 2px solid var(--black);
+    }
+
+    .about-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .about-quote {
+        grid-column: 1;
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .blog-image {
+        height: 260px;
+    }
+
+    .blog-content {
+        padding: 18px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-right {
+        text-align: left;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 18px;
     }
 }
 
 @media (max-width: 768px) {
     .container {
-        padding: 0 30px;
+        padding: 0 22px;
     }
 
     .header-nav {
         display: none;
     }
 
-    .header-top {
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-        gap: 18px;
+    .hero {
+        min-height: 620px;
+        height: auto;
+    }
+
+    .hero-content {
+        padding: 120px 0 110px;
     }
 
     .hero-title {
+        position: static;
+        transform: none;
+        left: auto;
+        bottom: auto;
+        top: auto;
         font-size: 28px;
-        left: 30px;
-        bottom: 100px;
+        margin-bottom: 40px;
+        max-width: 100%;
     }
 
     .hero-controls {
-        left: 30px;
-        bottom: 150px;
+        position: static;
+        margin-top: 20px;
+    }
+
+    .hero-dots {
+        position: static;
+        margin-top: 14px;
+        justify-content: flex-start;
+    }
+
+    .about {
+        padding: 46px 0;
     }
 
     .about-nav {
         font-size: 16px;
+        gap: 16px;
+    }
+
+    .about-left {
+        padding: 36px 0 20px;
     }
 
     .about-right {
-        padding-left: 20px;
-        border-left-width: 2px;
+        padding: 20px 0 14px;
+        border-top: 2px solid var(--black);
+    }
+
+    .about-title {
+        font-size: 26px;
     }
 
     .services-list p {
         font-size: 16px;
     }
 
+    .about-quote {
+        font-size: 22px;
+        margin-top: 12px;
+    }
+
+    .case-grid {
+        padding: 0;
+    }
+
+    .case-item {
+        padding: 46px 0 26px;
+    }
+
+    .case-yellow {
+        padding-right: 0;
+    }
+
+    .case-red {
+        padding: 22px 0;
+    }
+
+    .case-item img {
+        max-width: 320px;
+    }
+
     .case-title {
-        font-size: 48px;
-        letter-spacing: 3px;
+        font-size: 42px;
+        letter-spacing: 2px;
     }
 
     .case-metrics {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        padding: 0;
+    }
+
+    .metric {
+        padding: 14px 0;
+    }
+
+    .metric-value {
+        font-size: 36px;
+    }
+
+    .blog {
+        padding: 60px 0 46px;
+    }
+
+    .blog-title {
+        font-size: 24px;
+    }
+
+    .blog-image {
+        height: 220px;
+    }
+
+    .blog-card {
+        gap: 0;
     }
 
     .blog-grid {
-        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -968,18 +1248,19 @@ img {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .hero {
-        min-height: 600px;
+        min-height: 520px;
+    }
+
+    .hero-content {
+        padding: 96px 0 90px;
     }
 
     .hero-title {
         font-size: 22px;
-        left: 20px;
-        bottom: 80px;
-        max-width: 100%;
     }
 
     .about {
@@ -990,6 +1271,18 @@ img {
         font-size: 24px;
     }
 
+    .about-quote {
+        font-size: 20px;
+    }
+
+    .case-title {
+        font-size: 32px;
+    }
+
+    .metric-value {
+        font-size: 32px;
+    }
+
     .footer-title {
         font-size: 24px;
     }
@@ -998,8 +1291,59 @@ img {
         font-size: 20px;
     }
 
+    .blog-image {
+        height: 180px;
+    }
+
+    .footer-links a {
+        font-size: 16px;
+    }
+
     .footer-logo svg {
         width: 120px;
         height: 26px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero {
+        min-height: 480px;
+    }
+
+    .hero-content {
+        padding: 88px 0 80px;
+    }
+
+    .hero-title {
+        font-size: 20px;
+    }
+
+    .about-title {
+        font-size: 20px;
+    }
+
+    .about-quote {
+        font-size: 18px;
+    }
+
+    .case-item {
+        padding: 40px 0 20px;
+    }
+
+    .case-red {
+        padding: 18px 0;
+    }
+
+    .case-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .blog-title {
+        font-size: 18px;
+    }
+
+    .footer-title {
+        font-size: 20px;
     }
 }
