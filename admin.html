@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Paradogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <section class="catalog-hero">
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-left">
+                        <a href="index.html" class="logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                            <span class="logo-text" style="color: black;">PARADOGS</span>
+                        </a>
+                    </div>
+                    <nav class="header-nav header-nav--left">
+                        <a href="catalog.html" style="color: black;">Каталог</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="index.html#portfolio" style="color: black;">Портфолио</a>
+                    </nav>
+                    <nav class="header-nav header-nav--right">
+                        <a href="index.html#contacts" style="color: black;">Контакты</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="tel:+74951234567" style="color: black;">8 495 123 – 45 – 67</a>
+                    </nav>
+                </div>
+                <div class="header-line" style="background-color: black;"></div>
+            </div>
+        </header>
+
+        <div class="catalog-header-content">
+            <h1 class="catalog-title">Админ-панель</h1>
+            <p class="catalog-subtitle">Управление каталогом и отзывами</p>
+        </div>
+    </section>
+
+    <!-- Admin Panel Section -->
+    <section class="catalog-section">
+        <div class="container">
+            <!-- Форма входа -->
+            <div id="admin-login-form" class="admin-login-container">
+                <div class="admin-login-box">
+                    <h2 class="admin-login-title">Вход в админ-панель</h2>
+                    <p class="admin-login-subtitle">Введите email администратора</p>
+                    <form id="admin-login" class="register-form">
+                        <div class="form-group">
+                            <label for="admin-email" class="form-label required">Email</label>
+                            <input type="email" id="admin-email" class="form-input" required>
+                            <span class="error-message" id="admin-email-error"></span>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="register-btn">Войти</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="admin-container" class="admin-container" style="display: none;">
+                <!-- Управление услугами -->
+                <div class="admin-section">
+                    <h2 class="admin-section-title">Управление услугами</h2>
+                    
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-tab="add-service">Добавить услугу</button>
+                        <button class="admin-tab" data-tab="edit-service">Редактировать услугу</button>
+                        <button class="admin-tab" data-tab="delete-service">Удалить услугу</button>
+                    </div>
+
+                    <!-- Форма добавления услуги -->
+                    <div id="add-service-form" class="admin-tab-content active">
+                        <form id="add-service-form-element" class="register-form">
+                            <div class="form-group">
+                                <label for="add-name" class="form-label required">Название</label>
+                                <input type="text" id="add-name" class="form-input" required>
+                                <span class="error-message" id="add-name-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-description" class="form-label required">Описание</label>
+                                <textarea id="add-description" class="form-textarea" rows="4" required></textarea>
+                                <span class="error-message" id="add-description-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-price" class="form-label required">Цена</label>
+                                <input type="text" id="add-price" class="form-input" placeholder="от 100 000 ₽" required>
+                                <span class="error-message" id="add-price-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-duration" class="form-label required">Длительность</label>
+                                <input type="text" id="add-duration" class="form-input" placeholder="4-6 недель" required>
+                                <span class="error-message" id="add-duration-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-category" class="form-label required">Категория</label>
+                                <input type="text" id="add-category" class="form-input" required>
+                                <span class="error-message" id="add-category-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-imageUrl" class="form-label required">Ссылка на фото</label>
+                                <input type="url" id="add-imageUrl" class="form-input" required>
+                                <span class="error-message" id="add-imageUrl-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-features" class="form-label required">Особенности (через запятую)</label>
+                                <input type="text" id="add-features" class="form-input" placeholder="Особенность 1, Особенность 2, Особенность 3" required>
+                                <span class="error-message" id="add-features-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-rating" class="form-label required">Рейтинг</label>
+                                <input type="number" id="add-rating" class="form-input" min="0" max="5" step="0.1" value="4.5" required>
+                                <span class="error-message" id="add-rating-error"></span>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" id="add-service-btn" class="register-btn" disabled>Добавить услугу</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Форма редактирования услуги -->
+                    <div id="edit-service-form" class="admin-tab-content">
+                        <div class="form-group">
+                            <label for="edit-service-select" class="form-label required">Выберите услугу для редактирования</label>
+                            <select id="edit-service-select" class="form-input">
+                                <option value="">-- Выберите услугу --</option>
+                            </select>
+                            <span class="error-message" id="edit-service-select-error"></span>
+                        </div>
+
+                        <form id="edit-service-form-element" class="register-form" style="display: none;">
+                            <div class="form-group">
+                                <label for="edit-name" class="form-label required">Название</label>
+                                <input type="text" id="edit-name" class="form-input" required>
+                                <span class="error-message" id="edit-name-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-description" class="form-label required">Описание</label>
+                                <textarea id="edit-description" class="form-textarea" rows="4" required></textarea>
+                                <span class="error-message" id="edit-description-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-price" class="form-label required">Цена</label>
+                                <input type="text" id="edit-price" class="form-input" required>
+                                <span class="error-message" id="edit-price-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-duration" class="form-label required">Длительность</label>
+                                <input type="text" id="edit-duration" class="form-input" required>
+                                <span class="error-message" id="edit-duration-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-category" class="form-label required">Категория</label>
+                                <input type="text" id="edit-category" class="form-input" required>
+                                <span class="error-message" id="edit-category-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-imageUrl" class="form-label required">Ссылка на фото</label>
+                                <input type="url" id="edit-imageUrl" class="form-input" required>
+                                <span class="error-message" id="edit-imageUrl-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-features" class="form-label required">Особенности (через запятую)</label>
+                                <input type="text" id="edit-features" class="form-input" required>
+                                <span class="error-message" id="edit-features-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edit-rating" class="form-label required">Рейтинг</label>
+                                <input type="number" id="edit-rating" class="form-input" min="0" max="5" step="0.1" required>
+                                <span class="error-message" id="edit-rating-error"></span>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" id="edit-service-btn" class="register-btn" disabled>Сохранить изменения</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Форма удаления услуги -->
+                    <div id="delete-service-form" class="admin-tab-content">
+                        <div class="form-group">
+                            <label for="delete-service-select" class="form-label required">Выберите услугу для удаления</label>
+                            <select id="delete-service-select" class="form-input">
+                                <option value="">-- Выберите услугу --</option>
+                            </select>
+                            <span class="error-message" id="delete-service-select-error"></span>
+                        </div>
+
+                        <div id="delete-service-info" style="display: none;">
+                            <div class="delete-confirmation">
+                                <p class="delete-warning">Вы уверены, что хотите удалить эту услугу?</p>
+                                <div id="delete-service-details"></div>
+                                <div class="form-actions">
+                                    <button type="button" id="delete-service-btn" class="register-btn" style="background-color: var(--red-bright);">Удалить услугу</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Управление отзывами -->
+                <div class="admin-section">
+                    <h2 class="admin-section-title">Управление отзывами</h2>
+                    
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-tab="feedback-by-service">Отзывы по услуге</button>
+                        <button class="admin-tab" data-tab="feedback-by-user">Отзывы по пользователю</button>
+                    </div>
+
+                    <!-- Отзывы по услуге -->
+                    <div id="feedback-by-service" class="admin-tab-content active">
+                        <div class="form-group">
+                            <label for="feedback-service-select" class="form-label required">Выберите услугу</label>
+                            <select id="feedback-service-select" class="form-input">
+                                <option value="">-- Выберите услугу --</option>
+                            </select>
+                            <span class="error-message" id="feedback-service-select-error"></span>
+                        </div>
+
+                        <div id="feedback-service-results" class="feedback-results">
+                            <!-- Результаты будут загружены здесь -->
+                        </div>
+                    </div>
+
+                    <!-- Отзывы по пользователю -->
+                    <div id="feedback-by-user" class="admin-tab-content">
+                        <div class="form-group">
+                            <label for="feedback-user-email" class="form-label required">Email пользователя</label>
+                            <input type="email" id="feedback-user-email" class="form-input" placeholder="user@example.com">
+                            <span class="error-message" id="feedback-user-email-error"></span>
+                        </div>
+
+                        <div id="feedback-user-results" class="feedback-results">
+                            <!-- Результаты будут загружены здесь -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2 class="footer-title">Расскажите нам о своем проекте, задаче, идее, сроках, а мы составим
+                        предложение</h2>
+                    <div class="footer-links">
+                        <a href="mailto:project@2dg.ru">project@2dg.ru</a>
+                        <div class="footer-links__row">
+                            <a href="#">telegram</a>
+                            <a href="#">whatsapp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand">
+                        <div class="footer-logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text copyright">©2012—2020</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Москва,<br>Авиамоторная 25<br>офис 314</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Мы в соцсетях: vk | fb | in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
+
