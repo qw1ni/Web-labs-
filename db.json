@@ -235,5 +235,23 @@
   ],
   "cart": [],
   "users": [],
-  "orders": []
+  "orders": [
+    {
+      "items": [
+        {
+          "serviceId": 2,
+          "serviceName": "Интернет-магазин на платформе",
+          "servicePrice": "от 250 000 ₽",
+          "quantity": 1,
+          "itemTotal": 250000
+        }
+      ],
+      "totalPrice": 250000,
+      "totalItems": 1,
+      "orderDate": "2025-11-28T21:21:06.286Z",
+      "status": "оформлен",
+      "id": 1
+    }
+  ],
+  "feedback": []
 }
