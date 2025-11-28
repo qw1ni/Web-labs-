@@ -2943,3 +2943,277 @@ img {
     }
 }
 
+/* Registration Form Styles */
+.register-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-section {
+    padding: 30px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+}
+
+.form-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--black);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-label.required::after {
+    content: '*';
+    color: var(--red-bright);
+    font-weight: 700;
+}
+
+.form-input {
+    padding: 12px 16px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--black);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 3px rgba(0, 46, 255, 0.1);
+}
+
+.form-input.error {
+    border-color: var(--red-bright);
+    background-color: rgba(226, 45, 38, 0.05);
+}
+
+.form-input:disabled,
+.form-input[readonly] {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
+.error-message {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--red-bright);
+    min-height: 20px;
+    display: block;
+}
+
+.form-hint {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--black);
+    opacity: 0.6;
+    display: block;
+}
+
+.username-group {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.generate-btn {
+    padding: 12px 20px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.generate-btn:hover {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+}
+
+.radio-label input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--blue-primary);
+}
+
+.password-display-group {
+    display: flex;
+    gap: 12px;
+}
+
+.copy-btn {
+    padding: 12px 20px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.copy-btn:hover {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+    color: var(--white);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.5;
+}
+
+.checkbox-label.required::after {
+    content: '*';
+    color: var(--red-bright);
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--blue-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.form-actions {
+    padding: 30px;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.register-btn {
+    padding: 16px 48px;
+    border: 3px solid var(--black);
+    background-color: var(--blue-primary);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-width: 250px;
+}
+
+.register-btn:hover:not(:disabled) {
+    background-color: var(--black);
+    border-color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.register-btn:disabled {
+    background-color: var(--gray);
+    border-color: var(--gray);
+    color: var(--black);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.register-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Registration Responsive */
+@media (max-width: 768px) {
+    .register-container {
+        padding: 0 20px;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+    .username-group {
+        flex-direction: column;
+    }
+
+    .generate-btn {
+        width: 100%;
+    }
+
+    .password-display-group {
+        flex-direction: column;
+    }
+
+    .copy-btn {
+        width: 100%;
+    }
+
+    .register-btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+

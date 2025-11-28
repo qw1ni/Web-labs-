@@ -285,6 +285,61 @@ async function checkout() {
         // Получаем все элементы корзины
         const cart = await fetchData(`${API_BASE_URL}/cart`);
         
+        if (cart.length === 0) {
+            alert('Корзина пуста');
+            return;
+        }
+        
+        // Загружаем информацию о товарах и формируем заказ
+        const orderItems = [];
+        let totalPrice = 0;
+        
+        for (const cartItem of cart) {
+            try {
+                const service = await fetchData(`${API_BASE_URL}/services/${cartItem.serviceId}`);
+                if (service) {
+                    const itemPrice = extractPrice(service.price);
+                    const itemTotal = itemPrice * cartItem.quantity;
+                    totalPrice += itemTotal;
+                    
+                    orderItems.push({
+                        serviceId: service.id,
+                        serviceName: service.name,
+                        servicePrice: service.price,
+                        quantity: cartItem.quantity,
+                        itemTotal: itemTotal
+                    });
+                }
+            } catch (error) {
+                console.error(`Ошибка при загрузке услуги ${cartItem.serviceId}:`, error);
+            }
+        }
+        
+        // Создаем заказ в коллекции orders
+        const order = {
+            items: orderItems,
+            totalPrice: totalPrice,
+            totalItems: cart.reduce((sum, item) => sum + (item.quantity || 1), 0),
+            orderDate: new Date().toISOString(),
+            status: 'оформлен'
+        };
+        
+        // Отправляем заказ на сервер
+        const orderResponse = await fetch(`${API_BASE_URL}/orders`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        });
+        
+        if (!orderResponse.ok) {
+            throw new Error(`HTTP error! status: ${orderResponse.status}`);
+        }
+        
+        const createdOrder = await orderResponse.json();
+        console.log('Заказ создан:', createdOrder);
+        
         // Удаляем все элементы корзины
         for (const item of cart) {
             await fetch(`${API_BASE_URL}/cart/${item.id}`, {
@@ -302,7 +357,7 @@ async function checkout() {
         
     } catch (error) {
         console.error('Ошибка при оформлении заказа:', error);
-        alert('Не удалось оформить заказ');
+        alert('Не удалось оформить заказ. Убедитесь, что JSON Server запущен.');
     }
 }
 
