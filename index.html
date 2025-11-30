@@ -9,6 +9,24 @@
 </head>
 
 <body>
+    <div id="page-preloader" class="preloader" aria-live="polite" aria-busy="true">
+        <div class="preloader__shape preloader__shape--one"></div>
+        <div class="preloader__shape preloader__shape--two"></div>
+        <div class="preloader__content">
+            <div class="preloader__orbit preloader__orbit--outer"></div>
+            <div class="preloader__orbit preloader__orbit--inner"></div>
+            <div class="preloader__logo">
+                <span class="preloader__logo-mark">P</span>
+                <span class="preloader__logo-text">Paradogs</span>
+            </div>
+            <div class="preloader__pulse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -252,6 +270,24 @@
 
     <script src="auth.js"></script>
     <script src="admin-check.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('page-preloader');
+            if (!preloader) return;
+
+            requestAnimationFrame(() => {
+                preloader.classList.add('preloader--hide');
+            });
+
+            const fallback = setTimeout(() => preloader.remove(), 1400);
+            preloader.addEventListener('transitionend', (event) => {
+                if (event.propertyName === 'opacity') {
+                    clearTimeout(fallback);
+                    preloader.remove();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
