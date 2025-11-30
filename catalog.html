@@ -222,6 +222,33 @@
         </div>
     </footer>
 
+    <div class="app-modal product-modal" id="product-modal" aria-hidden="true">
+        <div class="app-modal__overlay" data-close-product></div>
+        <div class="app-modal__dialog">
+            <button class="app-modal__close" aria-label="Закрыть" data-close-product>&times;</button>
+            <div class="product-modal__layout">
+                <div class="product-modal__image">
+                    <img id="product-modal-image" src="" alt="">
+                    <span class="product-modal__tag" id="product-modal-category"></span>
+                </div>
+                <div class="product-modal__body">
+                    <h3 class="product-modal__title" id="product-modal-title"></h3>
+                    <p class="product-modal__description" id="product-modal-description"></p>
+                    <div class="product-modal__meta">
+                        <span class="product-modal__price" id="product-modal-price"></span>
+                        <span class="product-modal__duration" id="product-modal-duration"></span>
+                        <span class="product-modal__rating" id="product-modal-rating"></span>
+                    </div>
+                    <div class="product-modal__features" id="product-modal-features"></div>
+                    <div class="product-modal__footer">
+                        <button class="product-modal__btn" id="product-modal-fav">�?�?���>�?�?��</button>
+                        <button class="product-modal__btn secondary" id="product-modal-cart">�?�?����?��</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="menu.js"></script>
     <script src="catalog.js"></script>
 </body>

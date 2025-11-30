@@ -18,6 +18,8 @@ let currentFilters = {
 let allCategories = new Set();
 let favoritesIds = new Set();
 let cartIds = new Set();
+let productModalElements = null;
+let currentModalService = null;
 
 // Функция для извлечения числового значения цены
 function extractPrice(priceString) {
@@ -62,6 +64,105 @@ async function loadCart() {
         console.error('Ошибка при загрузке корзины:', error);
     }
 }
+
+function initProductModal() {
+    const modal = document.getElementById('product-modal');
+    if (!modal) return;
+
+    productModalElements = {
+        modal,
+        title: document.getElementById('product-modal-title'),
+        description: document.getElementById('product-modal-description'),
+        price: document.getElementById('product-modal-price'),
+        duration: document.getElementById('product-modal-duration'),
+        rating: document.getElementById('product-modal-rating'),
+        category: document.getElementById('product-modal-category'),
+        image: document.getElementById('product-modal-image'),
+        features: document.getElementById('product-modal-features'),
+        favBtn: document.getElementById('product-modal-fav'),
+        cartBtn: document.getElementById('product-modal-cart')
+    };
+
+    modal.querySelectorAll('[data-close-product]').forEach(el => {
+        el.addEventListener('click', closeProductModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeProductModal();
+        }
+    });
+
+    if (productModalElements.favBtn) {
+        productModalElements.favBtn.addEventListener('click', async () => {
+            if (!currentModalService) return;
+            await toggleFavorite(currentModalService.id);
+            updateProductModalButtons();
+        });
+    }
+
+    if (productModalElements.cartBtn) {
+        productModalElements.cartBtn.addEventListener('click', async () => {
+            if (!currentModalService) return;
+            await toggleCart(currentModalService.id);
+            updateProductModalButtons();
+        });
+    }
+}
+
+function openProductModal(service) {
+    if (!productModalElements) return;
+    currentModalService = service;
+
+    productModalElements.title.textContent = service.name;
+    productModalElements.description.textContent = service.description;
+    productModalElements.price.textContent = service.price;
+    productModalElements.duration.textContent = service.duration;
+    productModalElements.rating.textContent = `Rating: ${service.rating}`;
+    productModalElements.category.textContent = service.category;
+    productModalElements.image.src = service.imageUrl;
+    productModalElements.image.alt = service.name;
+
+    if (productModalElements.features) {
+        productModalElements.features.innerHTML = service.features
+            .map((feature) => `<span class="feature-tag">${feature}</span>`)
+            .join('');
+    }
+
+    updateProductModalButtons();
+
+    productModalElements.modal.classList.add('is-open');
+    productModalElements.modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeProductModal() {
+    if (!productModalElements) return;
+    productModalElements.modal.classList.remove('is-open');
+    productModalElements.modal.setAttribute('aria-hidden', 'true');
+    currentModalService = null;
+    const anyOpen = document.querySelector('.app-modal.is-open');
+    if (!anyOpen) {
+        document.body.classList.remove('modal-open');
+    }
+}
+
+function updateProductModalButtons() {
+    if (!productModalElements || !currentModalService) return;
+    const isFavorite = favoritesIds.has(currentModalService.id);
+    const isInCart = cartIds.has(currentModalService.id);
+
+    if (productModalElements.favBtn) {
+        productModalElements.favBtn.textContent = isFavorite ? 'In favorites' : 'Add to favorites';
+        productModalElements.favBtn.classList.toggle('active', isFavorite);
+    }
+
+    if (productModalElements.cartBtn) {
+        productModalElements.cartBtn.textContent = isInCart ? 'In cart' : 'Add to cart';
+        productModalElements.cartBtn.classList.toggle('active', isInCart);
+    }
+}
+
 
 // Построение URL для запроса с фильтрами
 function buildQueryURL() {
@@ -240,6 +341,7 @@ function renderCatalog(services) {
                 </div>
             </div>
         `;
+        card.addEventListener('click', () => openProductModal(service));
         container.appendChild(card);
     });
     
@@ -601,5 +703,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSearch();
     setupSort();
     setupAdvancedFilters();
+    initProductModal();
     loadCatalog();
 });

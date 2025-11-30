@@ -124,10 +124,120 @@ function checkAdminSession() {
 
 
 // Показать админ-панель
+
+
+function setupAdminModals() {
+    const modalConfigs = [
+        {
+            containerId: 'add-service-form',
+            title: '???????? ??????',
+            trigger: '??????? ????? ??????????',
+            hint: '????? ?????????? ?????? ??????????? ?? ??????????? ????.'
+        },
+        {
+            containerId: 'edit-service-form',
+            title: '????????????? ??????',
+            trigger: '??????? ????? ??????????????',
+            hint: '???????? ?????? ? ???????? ?????? ? ????????? ????.'
+        },
+        {
+            containerId: 'delete-service-form',
+            title: '??????? ??????',
+            trigger: '??????? ????? ????????',
+            hint: '??????????? ???????? ? ????????? ????.'
+        }
+    ];
+
+    modalConfigs.forEach(buildAdminModal);
+    wireAdminModalEvents();
+}
+
+function buildAdminModal(config) {
+    const container = document.getElementById(config.containerId);
+    if (!container || container.dataset.modalized === 'true') return;
+
+    const originalContent = Array.from(container.childNodes);
+    container.innerHTML = '';
+
+    const hint = document.createElement('p');
+    hint.className = 'admin-modal-hint';
+    hint.textContent = config.hint;
+
+    const trigger = document.createElement('button');
+    trigger.className = 'admin-modal-open';
+    trigger.type = 'button';
+    trigger.dataset.modalTarget = `modal-${config.containerId}`;
+    trigger.textContent = config.trigger;
+
+    const modal = document.createElement('div');
+    modal.className = 'app-modal admin-modal';
+    modal.id = `modal-${config.containerId}`;
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = `
+        <div class="app-modal__overlay" data-close-modal></div>
+        <div class="app-modal__dialog">
+            <div class="app-modal__header">
+                <h3>${config.title}</h3>
+                <button class="app-modal__close" aria-label="???????" data-close-modal>&times;</button>
+            </div>
+            <div class="app-modal__body"></div>
+        </div>
+    `;
+
+    const modalBody = modal.querySelector('.app-modal__body');
+    originalContent.forEach(node => modalBody.appendChild(node));
+
+    container.appendChild(hint);
+    container.appendChild(trigger);
+    container.appendChild(modal);
+    container.dataset.modalized = 'true';
+}
+
+function wireAdminModalEvents() {
+    if (window.__adminModalsWired) return;
+    window.__adminModalsWired = true;
+
+    document.addEventListener('click', (event) => {
+        const openBtn = event.target.closest('.admin-modal-open');
+        if (openBtn) {
+            const modal = document.getElementById(openBtn.dataset.modalTarget);
+            if (modal) openAdminModal(modal);
+        }
+
+        const closeTarget = event.target.closest('[data-close-modal]');
+        if (closeTarget) {
+            const modal = closeTarget.closest('.admin-modal');
+            if (modal) closeAdminModal(modal);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.admin-modal.is-open').forEach(closeAdminModal);
+        }
+    });
+}
+
+function openAdminModal(modal) {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeAdminModal(modal) {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    const anyOpen = document.querySelector('.app-modal.is-open');
+    if (!anyOpen) {
+        document.body.classList.remove('modal-open');
+    }
+}
+
 function showAdminPanel() {
     document.getElementById('admin-login-form').style.display = 'none';
     document.getElementById('admin-container').style.display = 'block';
     
+    setupAdminModals();
     setupTabs();
     setupServiceForms();
     setupFeedbackForms();
