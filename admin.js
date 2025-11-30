@@ -9,6 +9,13 @@ const auth = window.auth || {
 
 // Текущий администратор
 let currentAdmin = null;
+const notifyUser = (message, type = 'info') => {
+    if (window.showToast) {
+        window.showToast(message, type);
+    } else {
+        alert(message);
+    }
+};
 
 // Инициализация
 document.addEventListener('DOMContentLoaded', () => {
@@ -514,6 +521,7 @@ function validateServiceForm(type) {
 }
 
 // Добавление услуги
+// ?'???+?????>?????? ?????>??????
 async function addService() {
     if (!validateServiceForm('add')) {
         return;
@@ -545,20 +553,19 @@ async function addService() {
         });
         
         if (response.ok) {
-            alert('Услуга успешно добавлена!');
+            notifyUser('Service added successfully', 'success');
             document.getElementById('add-service-form-element').reset();
             loadServicesForSelects();
             validateServiceForm('add');
         } else {
             const error = await response.json();
-            alert('Ошибка при добавлении услуги: ' + (error.message || 'Неизвестная ошибка'));
+            notifyUser('Failed to add service: ' + (error.message || 'Try again later'), 'error');
         }
     } catch (error) {
-        console.error('Ошибка при добавлении услуги:', error);
-        alert('Не удалось добавить услугу. Убедитесь, что JSON Server запущен.');
+        console.error('������ ��� ���������� ������:', error);
+        notifyUser('Could not add service. Check server connection.', 'error');
     }
 }
-
 // Обновление услуги
 async function updateService() {
     if (!validateServiceForm('edit')) {
@@ -842,4 +849,3 @@ function formatDate(dateString) {
         minute: '2-digit'
     });
 }
-

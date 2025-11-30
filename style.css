@@ -120,6 +120,48 @@ body.modal-open {
     overflow: hidden;
 }
 
+.toast-container {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1300;
+}
+
+.toast {
+    min-width: 240px;
+    max-width: 340px;
+    background: #0d111a;
+    color: var(--white);
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast--success {
+    border-color: rgba(0, 128, 0, 0.35);
+}
+
+.toast--error {
+    border-color: rgba(226, 45, 38, 0.4);
+}
+
+.toast--info {
+    border-color: rgba(0, 46, 255, 0.35);
+}
+
 .admin-modal .app-modal__dialog {
     background: #0e1019;
     color: var(--white);

@@ -20,6 +20,11 @@ let favoritesIds = new Set();
 let cartIds = new Set();
 let productModalElements = null;
 let currentModalService = null;
+const notifyCatalog = (message, type = 'info') => {
+    if (window.showToast) {
+        window.showToast(message, type);
+    }
+};
 
 // Функция для извлечения числового значения цены
 function extractPrice(priceString) {
