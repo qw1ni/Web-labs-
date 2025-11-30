@@ -293,6 +293,8 @@
                 <div class="media-gallery__main">
                     <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
                         alt="Работа с командой над брендингом" data-gallery-main>
+                    <video class="media-gallery__video is-hidden" data-gallery-video-main controls preload="metadata"
+                        playsinline></video>
                     <div class="media-gallery__meta">
                         <span class="media-gallery__label" data-gallery-label>Работа с командой над брендингом</span>
                         <span class="media-gallery__counter" data-gallery-counter>1 / 10</span>
@@ -344,10 +346,12 @@
                         <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80"
                             alt="Подготовка контента и сценария">
                     </button>
-                    <button class="media-thumb" type="button" data-gallery-index="9"
-                        data-gallery-label="Креативный штурм в офисе">
+                    <button class="media-thumb" type="button" data-gallery-index="9" data-gallery-type="video"
+                        data-gallery-video="media/gallery-session.mp4"
+                        data-gallery-poster="https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=1200&q=80"
+                        data-gallery-label="Видео: креативная сессия (локальный файл)">
                         <img src="https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=600&q=80"
-                            alt="Креативный штурм в офисе">
+                            alt="Видео: креативная сессия (локальный файл)">
                     </button>
                 </div>
             </div>
@@ -538,6 +542,7 @@
             if (!gallery) return;
 
             const mainImage = gallery.querySelector('[data-gallery-main]');
+            const mainVideo = gallery.querySelector('[data-gallery-video-main]');
             const counter = gallery.querySelector('[data-gallery-counter]');
             const label = gallery.querySelector('[data-gallery-label]');
             const nextBtn = gallery.querySelector('[data-gallery-next]');
@@ -562,7 +567,10 @@
                 const altText = img?.alt?.trim() || `Кадр ${index + 1}`;
                 const src = img?.src || '';
                 const caption = btn.dataset.galleryLabel || altText;
-                return { src, alt: altText, label: caption };
+                const type = btn.dataset.galleryType || 'image';
+                const videoSrc = btn.dataset.galleryVideo || '';
+                const poster = btn.dataset.galleryPoster || src;
+                return { src, alt: altText, label: caption, type, videoSrc, poster };
             });
 
             let activeIndex = 0;
@@ -620,7 +628,30 @@
                 osc.stop(now + NOTE_DURATION);
             };
 
-            const updateImage = (current, useFade = true) => {
+            const updateMedia = (current, useFade = true) => {
+                if (current.type === 'video' && mainVideo) {
+                    // hide image, show video
+                    mainImage?.classList.add('is-hidden');
+                    mainVideo.classList.remove('is-hidden');
+                    mainImage?.classList.remove('is-fade-out');
+                    clearTimeout(fadeTimeout);
+                    mainVideo.pause();
+                    mainVideo.src = current.videoSrc || current.src;
+                    mainVideo.poster = current.poster || current.src;
+                    mainVideo.load();
+                    mainVideo.play().catch(() => {});
+                    return;
+                }
+
+                // show image, hide video
+                if (mainVideo) {
+                    mainVideo.pause();
+                    mainVideo.classList.add('is-hidden');
+                }
+                if (mainImage) {
+                    mainImage.classList.remove('is-hidden');
+                }
+
                 if (!useFade || !initialized) {
                     mainImage.src = current.src;
                     mainImage.alt = current.alt;
@@ -653,7 +684,7 @@
                     btn.classList.toggle('is-active', idx === activeIndex);
                 });
                 const current = items[activeIndex];
-                updateImage(current);
+                updateMedia(current);
                 if (label) label.textContent = current.label;
                 if (counter) counter.textContent = `${activeIndex + 1} / ${items.length}`;
                 if (shouldPlay) {
