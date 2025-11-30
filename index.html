@@ -29,6 +29,17 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-slider" aria-live="polite">
+            <div class="hero-slide is-active" data-title="Bold digital experiences with strategy and craft"
+                style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2100&q=80');">
+            </div>
+            <div class="hero-slide" data-title="Product thinking + brand storytelling for ambitious teams"
+                style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-ff45a68eedd3?auto=format&fit=crop&w=2100&q=80');">
+            </div>
+            <div class="hero-slide" data-title="Integrated campaigns, motion, and web that move people"
+                style="--hero-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=2100&q=80');">
+            </div>
+        </div>
         <div class="hero-content">
             <header class="header header--white">
                 <div class="container">
@@ -72,25 +83,22 @@
                 </div>
             </header>
 
-            <h1 class="hero-title">Делаем веб, ведем рекламные компании, помогаем с интерактивом</h1>
+            <h1 class="hero-title">Bold digital experiences with strategy and craft</h1>
             <div class="hero-controls">
-                <button class="arrow-btn opacity-low">
+                <button class="arrow-btn opacity-low hero-control" data-hero-prev aria-label="Previous slide">
                     <svg width="87" height="13" viewBox="0 0 87 13" fill="none">
                         <path d="M85.4298 6.36401H1.46106" stroke="white" stroke-width="2" stroke-linecap="square" />
                         <path d="M7.07104 0.707153L1.41419 6.36401L7.07104 12.0209" stroke="white" stroke-width="2" />
                     </svg>
                 </button>
-                <button class="arrow-btn">
+                <button class="arrow-btn hero-control hero-control--next" data-hero-next aria-label="Next slide">
                     <svg width="87" height="13" viewBox="0 0 87 13" fill="none">
                         <path d="M1 6.36401H84.9688" stroke="white" stroke-width="2" stroke-linecap="square" />
                         <path d="M79.3588 0.707153L85.0156 6.36401L79.3588 12.0209" stroke="white" stroke-width="2" />
                     </svg>
                 </button>
             </div>
-            <div class="hero-dots">
-                <span class="dot opacity-low"></span>
-                <span class="dot"></span>
-            </div>
+            <div class="hero-dots" role="tablist" aria-label="Hero slider"></div>
         </div>
     </section>
 
@@ -279,7 +287,7 @@
                 preloader.classList.add('preloader--hide');
             });
 
-            const fallback = setTimeout(() => preloader.remove(), 1400);
+            const fallback = setTimeout(() => preloader.remove(), 2200);
             preloader.addEventListener('transitionend', (event) => {
                 if (event.propertyName === 'opacity') {
                     clearTimeout(fallback);
@@ -287,6 +295,84 @@
                 }
             });
         });
+
+        (() => {
+            const slider = document.querySelector('.hero-slider');
+            const heroSection = document.querySelector('.hero');
+            const heroTitle = document.querySelector('.hero-title');
+            if (!slider || !heroTitle) return;
+
+            const slides = Array.from(slider.querySelectorAll('.hero-slide'));
+            if (!slides.length) return;
+
+            const dotsContainer = document.querySelector('.hero-dots');
+            const prevBtn = document.querySelector('[data-hero-prev]');
+            const nextBtn = document.querySelector('[data-hero-next]');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
+            if (activeIndex < 0) activeIndex = 0;
+
+            const dots = [];
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                slides.forEach((slide, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot';
+                    dot.type = 'button';
+                    dot.dataset.slideIndex = String(index);
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    dotsContainer.appendChild(dot);
+                    dots.push(dot);
+                });
+            }
+
+            const setTitle = (slide) => {
+                const text = slide.getAttribute('data-title');
+                if (text) heroTitle.textContent = text;
+            };
+
+            const activate = (index) => {
+                const nextIndex = (index + slides.length) % slides.length;
+                slides[activeIndex].classList.remove('is-active');
+                dots[activeIndex]?.classList.remove('is-active');
+                activeIndex = nextIndex;
+                slides[activeIndex].classList.add('is-active');
+                dots[activeIndex]?.classList.add('is-active');
+                setTitle(slides[activeIndex]);
+            };
+
+            const autoDelay = prefersReducedMotion ? 8000 : 5200;
+            let autoTimer;
+            const restartAuto = () => {
+                if (prefersReducedMotion) return;
+                clearInterval(autoTimer);
+                autoTimer = setInterval(() => activate(activeIndex + 1), autoDelay);
+            };
+
+            const handleStep = (delta) => {
+                activate(activeIndex + delta);
+                restartAuto();
+            };
+
+            prevBtn?.addEventListener('click', () => handleStep(-1));
+            nextBtn?.addEventListener('click', () => handleStep(1));
+            dots.forEach((dot) => dot.addEventListener('click', () => {
+                const idx = Number(dot.dataset.slideIndex || 0);
+                activate(idx);
+                restartAuto();
+            }));
+
+            [slider, dotsContainer, prevBtn, nextBtn, heroSection].forEach((node) => {
+                node?.addEventListener('pointerenter', () => clearInterval(autoTimer));
+                node?.addEventListener('pointerleave', restartAuto);
+            });
+
+            slides[activeIndex].classList.add('is-active');
+            dots[activeIndex]?.classList.add('is-active');
+            setTitle(slides[activeIndex]);
+            restartAuto();
+        })();
     </script>
 </body>
 
