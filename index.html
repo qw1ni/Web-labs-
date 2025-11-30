@@ -131,6 +131,30 @@
         </div>
     </section>
 
+    <section class="stats" id="stats" data-scroll-accent="rgba(0, 46, 255, 0.32)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.18)">
+        <div class="container">
+            <div class="stats-header" data-scroll-reveal="left">
+                <p class="stats-kicker">Impact in numbers</p>
+                <h2 class="stats-title">Campaigns that move the needle</h2>
+                <p class="stats-subtitle">We track every launch, uplift, and sprint so teams know what actually works.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" data-scroll-reveal="scale">
+                    <span class="stat-value" data-counter-target="187" data-counter-suffix="+">0</span>
+                    <p class="stat-label">Projects shipped across web, brand, and performance</p>
+                </div>
+                <div class="stat-card" data-scroll-reveal="up" style="--reveal-delay: 0.05s;">
+                    <span class="stat-value" data-counter-target="32" data-counter-suffix="%">0</span>
+                    <p class="stat-label">Average CTR uplift after creative and landing refresh</p>
+                </div>
+                <div class="stat-card" data-scroll-reveal="right" style="--reveal-delay: 0.1s;">
+                    <span class="stat-value" data-counter-target="68" data-counter-suffix="k">0</span>
+                    <p class="stat-label">Monthly conversions tracked through our analytics dashboards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="services" data-scroll-accent="rgba(222, 211, 35, 0.3)" data-scroll-accent-secondary="rgba(0, 46, 255, 0.26)">
         <div class="container">
@@ -641,6 +665,51 @@
             window.addEventListener('scroll', requestTick, { passive: true });
             window.addEventListener('resize', requestTick);
             applyParallax();
+        })();
+
+        (() => {
+            const counters = document.querySelectorAll('[data-counter-target]');
+            if (!counters.length) return;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+            const runCounter = (el) => {
+                if (el.dataset.counterStarted) return;
+                el.dataset.counterStarted = '1';
+
+                const target = Number(el.dataset.counterTarget) || 0;
+                const startVal = Number(el.dataset.counterStart || 0);
+                const decimals = Number(el.dataset.counterDecimals || 0);
+                const prefix = el.dataset.counterPrefix || '';
+                const suffix = el.dataset.counterSuffix || '';
+                const duration = 1400;
+
+                const startTime = performance.now();
+                const step = (now) => {
+                    const t = Math.min((now - startTime) / duration, 1);
+                    const eased = easeOutCubic(t);
+                    const value = startVal + (target - startVal) * eased;
+                    el.textContent = `${prefix}${value.toFixed(decimals)}${suffix}`;
+                    if (t < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            };
+
+            if ('IntersectionObserver' in window && !prefersReducedMotion) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            runCounter(entry.target);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.4 });
+
+                counters.forEach((counter) => observer.observe(counter));
+            } else {
+                counters.forEach(runCounter);
+            }
         })();
 
         (() => {
