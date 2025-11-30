@@ -1,0 +1,21 @@
+{
+  "name": "web-labs-catalog",
+  "version": "1.0.0",
+  "description": "Каталог услуг веб-дизайна и маркетинга с JSON Server",
+  "main": "db.json",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3000",
+    "server:delay": "json-server --watch db.json --port 3000 --delay 1000"
+  },
+  "keywords": [
+    "json-server",
+    "catalog",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
+

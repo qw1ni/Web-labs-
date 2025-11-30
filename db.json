@@ -1,0 +1,300 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "name": "Разработка корпоративного сайта",
+      "description": "Создание современного корпоративного сайта с адаптивным дизайном и интеграцией CRM-систем",
+      "price": "от 50 000 ₽",
+      "duration": "4-6 недель",
+      "category": "Разработка",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "features": [
+        "Адаптивный дизайн",
+        "CMS интеграция",
+        "SEO оптимизация"
+      ],
+      "rating": 4.9
+    },
+    {
+      "id": 2,
+      "name": "Интернет-магазин на платформе",
+      "description": "Полнофункциональный интернет-магазин с системой оплаты, корзиной и личным кабинетом",
+      "price": "от 250 000 ₽",
+      "duration": "6-8 недель",
+      "category": "E-commerce",
+      "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      "features": [
+        "Онлайн-оплата",
+        "Управление товарами",
+        "Аналитика продаж"
+      ],
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "name": "Настройка контекстной рекламы",
+      "description": "Профессиональная настройка Яндекс.Директ и Google Ads с оптимизацией бюджета",
+      "price": "от 30 000 ₽",
+      "duration": "1-2 недели",
+      "category": "Реклама",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "features": [
+        "Ключевые слова",
+        "A/B тестирование",
+        "Ежемесячная поддержка"
+      ],
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "name": "UX/UI дизайн интерфейсов",
+      "description": "Создание интуитивных и привлекательных пользовательских интерфейсов для веб и мобильных приложений",
+      "price": "от 80 000 ₽",
+      "duration": "3-4 недели",
+      "category": "Дизайн",
+      "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+      "features": [
+        "Прототипирование",
+        "Дизайн-система",
+        "User testing"
+      ],
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "name": "SMM продвижение в Instagram",
+      "description": "Комплексное ведение аккаунта, создание контента и настройка таргетированной рекламы",
+      "price": "от 50 000 ₽/мес",
+      "duration": "Ежемесячно",
+      "category": "SMM",
+      "imageUrl": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
+      "features": [
+        "Контент-план",
+        "Сториз и посты",
+        "Аналитика"
+      ],
+      "rating": 4.6
+    },
+    {
+      "id": 6,
+      "name": "SEO оптимизация сайта",
+      "description": "Комплексная поисковая оптимизация для повышения позиций в поисковых системах",
+      "price": "от 40 000 ₽/мес",
+      "duration": "Ежемесячно",
+      "category": "SEO",
+      "imageUrl": "https://images.unsplash.com/photo-1432888622747-4eb9a8f2d1c0?w=800&h=600&fit=crop",
+      "features": [
+        "Аудит сайта",
+        "Техническая оптимизация",
+        "Контент-маркетинг"
+      ],
+      "rating": 4.8
+    },
+    {
+      "id": 7,
+      "name": "Автоматизация продаж",
+      "description": "Настройка воронок продаж и автоматизация бизнес-процессов с помощью CRM",
+      "price": "от 100 000 ₽",
+      "duration": "4-5 недель",
+      "category": "Автоматизация",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "features": [
+        "CRM интеграция",
+        "Email-маркетинг",
+        "Чат-боты"
+      ],
+      "rating": 4.9
+    },
+    {
+      "id": 8,
+      "name": "Брендинг и айдентика",
+      "description": "Разработка фирменного стиля, логотипа и брендбука для вашей компании",
+      "price": "от 120 000 ₽",
+      "duration": "5-6 недель",
+      "category": "Брендинг",
+      "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop",
+      "features": [
+        "Логотип",
+        "Брендбук",
+        "Гайдлайны"
+      ],
+      "rating": 4.7
+    },
+    {
+      "id": 9,
+      "name": "Landing page под ключ",
+      "description": "Создание одностраничного сайта для запуска рекламных кампаний и сбора заявок",
+      "price": "от 60 000 ₽",
+      "duration": "2-3 недели",
+      "category": "Разработка",
+      "imageUrl": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
+      "features": [
+        "Адаптивная верстка",
+        "Формы обратной связи",
+        "Интеграция с CRM"
+      ],
+      "rating": 4.8
+    },
+    {
+      "id": 10,
+      "name": "Аналитика и отчетность",
+      "description": "Настройка систем аналитики и ежемесячные отчеты по эффективности рекламы",
+      "price": "от 25 000 ₽/мес",
+      "duration": "Ежемесячно",
+      "category": "Аналитика",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "features": [
+        "Google Analytics",
+        "Яндекс.Метрика",
+        "Дашборды"
+      ],
+      "rating": 4.9
+    },
+    {
+      "id": 11,
+      "name": "Email-маркетинг",
+      "description": "Настройка email-рассылок и автоматических воронок для повышения конверсии",
+      "price": "от 35 000 ₽",
+      "duration": "2-3 недели",
+      "category": "Маркетинг",
+      "imageUrl": "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800&h=600&fit=crop",
+      "features": [
+        "Шаблоны писем",
+        "Автоматизация",
+        "A/B тестирование"
+      ],
+      "rating": 4.6
+    },
+    {
+      "id": 12,
+      "name": "Мобильное приложение",
+      "description": "Разработка нативных и кроссплатформенных мобильных приложений",
+      "price": "от 400 000 ₽",
+      "duration": "8-12 недель",
+      "category": "Разработка",
+      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      "features": [
+        "iOS и Android",
+        "Backend разработка",
+        "Публикация в сторы"
+      ],
+      "rating": 4.9
+    },
+    {
+      "id": 13,
+      "name": "Видеопродакшн",
+      "description": "Создание рекламных роликов, видео для соцсетей и корпоративного контента",
+      "price": "от 80 000 ₽",
+      "duration": "3-4 недели",
+      "category": "Контент",
+      "imageUrl": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&h=600&fit=crop",
+      "features": [
+        "Сценарий",
+        "Съемка",
+        "Монтаж и графика"
+      ],
+      "rating": 4.7
+    },
+    {
+      "id": 14,
+      "name": "Веб-приложения",
+      "description": "Разработка сложных веб-приложений с использованием современных технологий",
+      "price": "от 300 000 ₽",
+      "duration": "10-14 недель",
+      "category": "Разработка",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "features": [
+        "React/Vue.js",
+        "API интеграция",
+        "Облачная инфраструктура"
+      ],
+      "rating": 5
+    },
+    {
+      "id": 15,
+      "name": "Контент-стратегия",
+      "description": "Разработка стратегии контент-маркетинга и создание контент-плана",
+      "price": "от 60 000 ₽",
+      "duration": "2-3 недели",
+      "category": "Контент",
+      "imageUrl": "https://images.unsplash.com/photo-1432888622747-4eb9a8f2d1c0?w=800&h=600&fit=crop",
+      "features": [
+        "Аудит контента",
+        "Контент-план",
+        "KPI метрики"
+      ],
+      "rating": 4.8
+    }
+  ],
+  "favorites": [
+    {
+      "serviceId": 1,
+      "addedAt": "2025-11-28T21:09:53.831Z",
+      "id": 1
+    }
+  ],
+  "cart": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "adminPro",
+      "firstname": "Aleksey",
+      "lastname": "Adminov",
+      "middlename": "",
+      "phone": "+375 (29) 123-45-67",
+      "email": "admin@paradogs.by",
+      "birthdate": "1990-01-01",
+      "role": "admin",
+      "password": "Admin#2024",
+      "registeredAt": "2024-10-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "username": "buyerOne",
+      "firstname": "Ivan",
+      "lastname": "Petrov",
+      "middlename": "Alekseevich",
+      "phone": "+375 (44) 555-55-55",
+      "email": "ivan.petrov@example.com",
+      "birthdate": "1995-05-05",
+      "role": "customer",
+      "password": "Buyer#2024",
+      "registeredAt": "2024-10-05T09:00:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 2,
+      "userEmail": "ivan.petrov@example.com",
+      "username": "buyerOne",
+      "items": [
+        {
+          "serviceId": 2,
+          "serviceName": "Internet-magazin pod klyuch",
+          "servicePrice": "ot 250 000 rub.",
+          "quantity": 1,
+          "itemTotal": 250000
+        }
+      ],
+      "totalPrice": 250000,
+      "totalItems": 1,
+      "orderDate": "2024-11-28T21:21:06.286Z",
+      "status": "paid"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "serviceId": 2,
+      "serviceName": "Internet-magazin pod klyuch",
+      "userId": 2,
+      "userEmail": "ivan.petrov@example.com",
+      "username": "buyerOne",
+      "rating": 5,
+      "comment": "Servis otrabotal otlichno, podrobnyy plan i bystraya integratsiya.",
+      "date": "2024-11-29T10:00:00.000Z",
+      "status": "published"
+    }
+  ]
+}
