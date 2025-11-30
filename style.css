@@ -10,6 +10,8 @@
     --black: #000;
     --white: #FFF;
     --gray: #F2F2F2;
+    --ambient-accent: rgba(0, 46, 255, 0.22);
+    --ambient-secondary: rgba(226, 45, 38, 0.2);
 }
 
 /* Global Styles */
@@ -53,6 +55,73 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Scroll Effects */
+.scroll-ambient {
+    position: fixed;
+    inset: -8%;
+    background:
+        radial-gradient(circle at 16% 22%, var(--ambient-accent), transparent 36%),
+        radial-gradient(circle at 78% 68%, var(--ambient-secondary), transparent 44%),
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 26%);
+    pointer-events: none;
+    opacity: 0;
+    filter: blur(0);
+    transform: scale(1);
+    transition: opacity 0.8s ease, transform 1.2s cubic-bezier(.19, 1, .22, 1), filter 0.9s ease;
+    mix-blend-mode: screen;
+    z-index: 0;
+}
+
+.scroll-ambient.is-active {
+    opacity: 0.55;
+    filter: blur(2px);
+    transform: scale(1.04);
+}
+
+[data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(10px);
+    transition: opacity 0.7s ease, transform 1s cubic-bezier(.19, 1, .22, 1), filter 1s ease;
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: transform, opacity;
+}
+
+[data-scroll-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+}
+
+[data-scroll-reveal="left"] {
+    transform: translateX(-45px);
+}
+
+[data-scroll-reveal="right"] {
+    transform: translateX(45px);
+}
+
+[data-scroll-reveal="up"] {
+    transform: translateY(-45px);
+}
+
+[data-scroll-reveal="scale"] {
+    transform: translateY(28px) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-ambient {
+        display: none;
+    }
+
+    [data-scroll-reveal] {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* Modals */

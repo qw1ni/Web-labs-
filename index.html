@@ -27,6 +27,8 @@
         </div>
     </div>
 
+    <div class="scroll-ambient" aria-hidden="true"></div>
+
     <div class="mobile-menu-overlay" data-menu-overlay></div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Main menu">
         <div class="mobile-menu__inner">
@@ -43,7 +45,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" data-scroll-accent="rgba(0, 46, 255, 0.35)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.26)">
         <div class="hero-slider" aria-live="polite">
             <div class="hero-slide is-active" data-title="Bold digital experiences with strategy and craft"
                 style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2100&q=80');">
@@ -104,7 +106,7 @@
                 </div>
             </header>
 
-            <h1 class="hero-title">Bold digital experiences with strategy and craft</h1>
+            <h1 class="hero-title" data-scroll-reveal="left">Bold digital experiences with strategy and craft</h1>
             <div class="hero-controls">
                 <button class="arrow-btn opacity-low hero-control" data-hero-prev aria-label="Previous slide">
                     <svg width="87" height="13" viewBox="0 0 87 13" fill="none">
@@ -124,7 +126,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="services">
+    <section class="about" id="services" data-scroll-accent="rgba(222, 211, 35, 0.3)" data-scroll-accent-secondary="rgba(0, 46, 255, 0.26)">
         <div class="container">
             <div class="about-nav">
                 <a href="#brief">заполнить бриф</a>
@@ -133,12 +135,12 @@
             </div>
 
             <div class="about-grid">
-                <div class="about-left">
+                <div class="about-left" data-scroll-reveal="left">
                     <h2 class="about-title">Мы бутиковая студия разработки и продвижения.</h2>
                     <a href="#" class="link-underline">О студии</a>
                 </div>
 
-                <div class="about-right">
+                <div class="about-right" data-scroll-reveal="right" style="--reveal-delay: 0.08s;">
                     <div class="services-list">
                         <p>Аналитика и стратегия</p>
                         <p>Дизайн и разработка</p>
@@ -150,7 +152,7 @@
                 </div>
             </div>
 
-            <div class="about-bottom">
+            <div class="about-bottom" data-scroll-reveal style="--reveal-delay: 0.18s;">
                 <p class="about-quote">К нам приходят, когда нужно сделать сайт вчера, настроить контекстную рекламу или
                     когда хотят начать продажи в инстаграмме.</p>
             </div>
@@ -158,11 +160,11 @@
     </section>
 
     <!-- Case Studies Section -->
-    <section class="cases" id="portfolio">
+    <section class="cases" id="portfolio" data-scroll-accent="rgba(226, 45, 38, 0.34)" data-scroll-accent-secondary="rgba(0, 0, 0, 0.22)">
         
 
         <div class="case-grid">
-            <div class="case-item case-yellow">
+            <div class="case-item case-yellow" data-scroll-reveal="left">
                 <div class="case-content">
                     <h1>Например,</h1>
                 </div>
@@ -172,14 +174,14 @@
                 <img src="https://api.builder.io/api/v1/image/assets/TEMP/b7f14143da9fb71f7e01ca346ed8fb0beeaf008a?width=1026"
                     alt="Store77">
             </div>
-            <div class="case-item case-red">
+            <div class="case-item case-red" data-scroll-reveal="right" style="--reveal-delay: 0.12s;">
                 <div class="case-content">
                     <h3>Помогли компании Coca-Cola увеличить количество подписчиков на ютуб-канале</h3>
                 </div>
             </div>
         </div>
 
-        <div class="case-details">
+        <div class="case-details" data-scroll-reveal="up" style="--reveal-delay: 0.18s;">
             <div class="container">
                 <div class="case-info">
                     <div>
@@ -210,12 +212,12 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="blog">
+    <section class="blog" data-scroll-accent="rgba(0, 46, 255, 0.28)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.18)">
         <div class="container">
-            <h2 class="blog-title">Разбираемся в трендах, продвижении и тестировании, советуем, информируем, пишем</h2>
+            <h2 class="blog-title" data-scroll-reveal="left">Разбираемся в трендах, продвижении и тестировании, советуем, информируем, пишем</h2>
 
             <div class="blog-grid">
-                <article class="blog-card combined-card" tabindex="0">
+                <article class="blog-card combined-card" tabindex="0" data-scroll-reveal="scale" style="--reveal-delay: 0.08s;">
                     <div class="blog-image">
                         <img src="https://api.builder.io/api/v1/image/assets/TEMP/e07629b919adb143560be014c1c24ec06695d934?width=1816"
                             alt="Instagram post">
@@ -248,9 +250,9 @@
         </div>
     </section>
 
-    <section class="map-section" id="location">
+    <section class="map-section" id="location" data-scroll-accent="rgba(0, 46, 255, 0.22)" data-scroll-accent-secondary="rgba(0, 0, 0, 0.18)">
         <div class="container">
-            <div class="map-copy">
+            <div class="map-copy" data-scroll-reveal="left">
                 <h2>Где мы находимся</h2>
                 <p>Заходите в офис — покажем кейсы, обсудим проект и угостим кофе.</p>
                 <div class="map-contacts">
@@ -259,15 +261,15 @@
                     <span>Время работы: Пн–Пт 10:00–19:00</span>
                 </div>
             </div>
-            <iframe class="map-frame"
+            <iframe class="map-frame" data-scroll-reveal="scale"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.3396038979567!2d37.61749407650767!3d55.75582698055352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5b7432f6f7%3A0xf49161d96b6500b2!2z0JzQuNGI0LrQtdC90YIsINCh0LDRgNC-0LXQvdC40LUgMTAxMDAy!5e0!3m2!1sru!2sru!4v1732916400000!5m2!1sru!2sru"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
-    <section class="media-gallery" id="media-gallery">
+    <section class="media-gallery" id="media-gallery" data-scroll-accent="rgba(0, 46, 255, 0.3)" data-scroll-accent-secondary="rgba(226, 45, 38, 0.24)">
         <div class="container">
-            <div class="media-gallery__header">
+            <div class="media-gallery__header" data-scroll-reveal="left">
                 <div class="media-gallery__headings">
                     <p class="media-gallery__eyebrow">Медиагалерея</p>
                     <h2 class="media-gallery__title">Кадры из последних кампаний и съемок</h2>
@@ -290,7 +292,7 @@
             </div>
 
             <div class="media-gallery__grid">
-                <div class="media-gallery__main">
+                <div class="media-gallery__main" data-scroll-reveal="scale">
                     <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
                         alt="Работа с командой над брендингом" data-gallery-main>
                     <video class="media-gallery__video is-hidden" data-gallery-video-main controls preload="metadata"
@@ -300,7 +302,7 @@
                         <span class="media-gallery__counter" data-gallery-counter>1 / 10</span>
                     </div>
                 </div>
-                <div class="media-gallery__thumbs" role="list">
+                <div class="media-gallery__thumbs" role="list" data-scroll-reveal="right" style="--reveal-delay: 0.08s;">
                     <button class="media-thumb is-active" type="button" data-gallery-index="0"
                         data-gallery-label="Работа с командой над брендингом">
                         <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
@@ -359,10 +361,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" id="contacts">
+    <footer class="footer" id="contacts" data-scroll-accent="rgba(0, 0, 0, 0.32)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.18)">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-left">
+                <div class="footer-left" data-scroll-reveal="left">
                     <h2 class="footer-title">Расскажите нам о своем проекте, задаче, идее, сроках, а мы составим
                         предложение</h2>
                     <div class="footer-links">
@@ -376,7 +378,7 @@
               
             </div>
 
-            <div class="footer-bottom">
+            <div class="footer-bottom" data-scroll-reveal="up" style="--reveal-delay: 0.12s;">
                 <div class="footer-grid">
                     <div class="footer-col footer-brand">
                         <div class="footer-logo">
@@ -535,6 +537,61 @@
                     close();
                 }
             });
+        })();
+
+        (() => {
+            const revealTargets = document.querySelectorAll('[data-scroll-reveal]');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const supportsIO = 'IntersectionObserver' in window;
+
+            if (revealTargets.length) {
+                if (prefersReducedMotion || !supportsIO) {
+                    revealTargets.forEach((node) => node.classList.add('is-visible'));
+                } else {
+                    const revealObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        });
+                    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+
+                    revealTargets.forEach((node) => revealObserver.observe(node));
+                }
+            }
+
+            const ambient = document.querySelector('.scroll-ambient');
+            const accentSections = document.querySelectorAll('[data-scroll-accent]');
+            if (ambient && accentSections.length) {
+                if (prefersReducedMotion) {
+                    ambient.style.display = 'none';
+                    return;
+                }
+
+                const setAccent = (node) => {
+                    const primary = node.getAttribute('data-scroll-accent') || 'rgba(0, 46, 255, 0.28)';
+                    const secondary = node.getAttribute('data-scroll-accent-secondary') || 'rgba(226, 45, 38, 0.26)';
+                    ambient.style.setProperty('--ambient-accent', primary);
+                    ambient.style.setProperty('--ambient-secondary', secondary);
+                    ambient.classList.add('is-active');
+                };
+
+                if (!supportsIO) {
+                    setAccent(accentSections[0]);
+                    return;
+                }
+
+                const accentObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setAccent(entry.target);
+                        }
+                    });
+                }, { threshold: 0.42 });
+
+                accentSections.forEach((section) => accentObserver.observe(section));
+                setAccent(accentSections[0]);
+            }
         })();
 
         (() => {
@@ -731,3 +788,4 @@
 </body>
 
 </html>
+
