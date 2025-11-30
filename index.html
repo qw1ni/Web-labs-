@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradogs - Web Design & Marketing Agency</title>
+    <title>Paradogs — агентство веб-дизайна и маркетинга</title>
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -31,16 +31,16 @@
     <div class="scroll-ambient" aria-hidden="true"></div>
 
     <div class="mobile-menu-overlay" data-menu-overlay></div>
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Main menu">
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Основное меню">
         <div class="mobile-menu__inner">
-            <a href="#services" class="mobile-menu__link">Services</a>
-            <a href="#portfolio" class="mobile-menu__link">Portfolio</a>
-            <a href="catalog.html" class="mobile-menu__link">Catalog</a>
-            <a href="favorites.html" class="mobile-menu__link">Favorites</a>
-            <a href="cart.html" class="mobile-menu__link">Cart</a>
-            <a href="feedback.html" class="mobile-menu__link">Feedback</a>
-            <a href="register.html" class="mobile-menu__link">Register</a>
-            <a href="#contacts" class="mobile-menu__link">Contacts</a>
+            <a href="#services" class="mobile-menu__link">Услуги</a>
+            <a href="#portfolio" class="mobile-menu__link">Портфолио</a>
+            <a href="catalog.html" class="mobile-menu__link">Каталог</a>
+            <a href="favorites.html" class="mobile-menu__link">Избранное</a>
+            <a href="cart.html" class="mobile-menu__link">Корзина</a>
+            <a href="feedback.html" class="mobile-menu__link">Отзывы</a>
+            <a href="register.html" class="mobile-menu__link">Регистрация</a>
+            <a href="#contacts" class="mobile-menu__link">Контакты</a>
             <a href="tel:+74951234567" class="mobile-menu__link mobile-menu__link--phone">8 495 123 45 67</a>
         </div>
     </nav>
@@ -48,13 +48,13 @@
     <!-- Hero Section -->
     <section class="hero" data-scroll-accent="rgba(0, 46, 255, 0.35)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.26)" data-parallax>
         <div class="hero-slider" aria-live="polite">
-            <div class="hero-slide is-active" data-title="Bold digital experiences with strategy and craft"
+            <div class="hero-slide is-active" data-title="Смелые цифровые решения со стратегией и мастерством"
                 style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2100&q=80');">
             </div>
-            <div class="hero-slide" data-title="Product thinking + brand storytelling for ambitious teams"
+            <div class="hero-slide" data-title="Продуктовое мышление и бренд-сторителлинг для амбициозных команд"
                 style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-ff45a68eedd3?auto=format&fit=crop&w=2100&q=80');">
             </div>
-            <div class="hero-slide" data-title="Integrated campaigns, motion, and web that move people"
+            <div class="hero-slide" data-title="Интегрированные кампании, motion и веб, которые увлекают людей"
                 style="--hero-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=2100&q=80');">
             </div>
         </div>
@@ -67,7 +67,7 @@
             <header class="header header--white">
                 <div class="container">
                     <div class="header-top">
-                        <button class="header-burger" id="header-burger" aria-label="Open menu" aria-expanded="false"
+                        <button class="header-burger" id="header-burger" aria-label="Открыть меню" aria-expanded="false"
                             aria-controls="mobile-menu">
                             <span></span>
                             <span></span>
@@ -99,57 +99,62 @@
                             <span class="divider"></span>
                             <a href="cart.html">Корзина</a>
                             <span class="divider"></span>
-                            <a href="feedback.html">Отзывы</a>
-                            <span class="divider"></span>
-                            <a href="register.html">Регистрация</a>
-                            <span class="divider"></span>
-                            <a href="#contacts">Контакты</a>
-                            <span class="divider"></span>
-                            <a href="tel:+74951234567">8 495 123 – 45 – 67</a>
-                        </nav>
+                        <a href="feedback.html">Отзывы</a>
+                        <span class="divider"></span>
+                        <a href="register.html">Регистрация</a>
+                        <span class="divider"></span>
+                        <a href="#contacts">Контакты</a>
+                        <span class="divider"></span>
+                        <a href="tel:+74951234567">8 495 123 – 45 – 67</a>
+                    </nav>
+                    <div class="header-lang">
+                        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">
+                            <span data-lang-label>RU</span>
+                        </button>
                     </div>
-                    <div class="header-line"></div>
                 </div>
-            </header>
+                <div class="header-line"></div>
+            </div>
+        </header>
 
-            <h1 class="hero-title" data-scroll-reveal="left">Bold digital experiences with strategy and craft</h1>
+            <h1 class="hero-title" data-scroll-reveal="left">Смелые цифровые решения со стратегией и мастерством</h1>
             <div class="hero-controls">
-                <button class="arrow-btn opacity-low hero-control" data-hero-prev aria-label="Previous slide">
+                <button class="arrow-btn opacity-low hero-control" data-hero-prev aria-label="Предыдущий слайд">
                     <svg width="87" height="13" viewBox="0 0 87 13" fill="none">
                         <path d="M85.4298 6.36401H1.46106" stroke="white" stroke-width="2" stroke-linecap="square" />
                         <path d="M7.07104 0.707153L1.41419 6.36401L7.07104 12.0209" stroke="white" stroke-width="2" />
                     </svg>
                 </button>
-                <button class="arrow-btn hero-control hero-control--next" data-hero-next aria-label="Next slide">
+                <button class="arrow-btn hero-control hero-control--next" data-hero-next aria-label="Следующий слайд">
                     <svg width="87" height="13" viewBox="0 0 87 13" fill="none">
                         <path d="M1 6.36401H84.9688" stroke="white" stroke-width="2" stroke-linecap="square" />
                         <path d="M79.3588 0.707153L85.0156 6.36401L79.3588 12.0209" stroke="white" stroke-width="2" />
                     </svg>
                 </button>
             </div>
-            <div class="hero-dots" role="tablist" aria-label="Hero slider"></div>
+            <div class="hero-dots" role="tablist" aria-label="Слайдер главного экрана"></div>
         </div>
     </section>
 
     <section class="stats" id="stats" data-scroll-accent="rgba(0, 46, 255, 0.32)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.18)">
         <div class="container">
             <div class="stats-header" data-scroll-reveal="left">
-                <p class="stats-kicker">Impact in numbers</p>
-                <h2 class="stats-title">Campaigns that move the needle</h2>
-                <p class="stats-subtitle">We track every launch, uplift, and sprint so teams know what actually works.</p>
+                <p class="stats-kicker">Результаты в цифрах</p>
+                <h2 class="stats-title">Кампании, которые двигают показатели</h2>
+                <p class="stats-subtitle">Мы фиксируем каждый запуск, рост и спринт, чтобы команды знали, что реально работает.</p>
             </div>
             <div class="stats-grid">
                 <div class="stat-card" data-scroll-reveal="scale">
                     <span class="stat-value" data-counter-target="187" data-counter-suffix="+">0</span>
-                    <p class="stat-label">Projects shipped across web, brand, and performance</p>
+                    <p class="stat-label">Запущенные проекты в вебе, брендинге и перформансе</p>
                 </div>
                 <div class="stat-card" data-scroll-reveal="up" style="--reveal-delay: 0.05s;">
                     <span class="stat-value" data-counter-target="32" data-counter-suffix="%">0</span>
-                    <p class="stat-label">Average CTR uplift after creative and landing refresh</p>
+                    <p class="stat-label">Средний рост CTR после обновления креатива и лендинга</p>
                 </div>
                 <div class="stat-card" data-scroll-reveal="right" style="--reveal-delay: 0.1s;">
                     <span class="stat-value" data-counter-target="68" data-counter-suffix="k">0</span>
-                    <p class="stat-label">Monthly conversions tracked through our analytics dashboards</p>
+                    <p class="stat-label">Ежемесячные конверсии, которые мы отслеживаем в дашбордах аналитики</p>
                 </div>
             </div>
         </div>
@@ -250,7 +255,7 @@
                 <article class="blog-card combined-card" tabindex="0" data-scroll-reveal="scale" style="--reveal-delay: 0.08s;">
                     <div class="blog-image">
                         <img src="https://api.builder.io/api/v1/image/assets/TEMP/e07629b919adb143560be014c1c24ec06695d934?width=1816"
-                            alt="Instagram post">
+                            alt="Публикация в Instagram">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -303,7 +308,7 @@
                 <div class="media-gallery__headings">
                     <p class="media-gallery__eyebrow">Медиагалерея</p>
                     <h2 class="media-gallery__title">Кадры из последних кампаний и съемок</h2>
-                    <p class="media-gallery__subtitle">10 мгновений, показывающих, как мы упаковываем бренды, строим digital и снимаем продукты.</p>
+                    <p class="media-gallery__subtitle">10 мгновений, показывающих, как мы упаковываем бренды, строим диджитал-направления и снимаем продукты.</p>
                 </div>
                 <div class="media-gallery__controls">
                     <div class="media-gallery__controls-row">
@@ -400,8 +405,8 @@
                     <div class="footer-links">
                         <a href="mailto:project@2dg.ru">project@2dg.ru</a>
                         <div class="footer-links__row">
-                            <a href="#">telegram</a>
-                            <a href="#">whatsapp</a>
+                            <a href="#">Телеграм</a>
+                            <a href="#">Ватсап</a>
                         </div>
                     </div>
                 </div>
@@ -439,6 +444,282 @@
     <!-- Admin Access Button (visible only for admins) -->
     <button id="admin-access-btn" class="admin-access-btn">Админ-панель</button>
 
+    <script>
+        (() => {
+            const translations = {
+                ru: {
+                    'meta.title': 'Paradogs — агентство веб-дизайна и маркетинга',
+                    'nav.services': 'Услуги',
+                    'nav.portfolio': 'Портфолио',
+                    'nav.catalog': 'Каталог',
+                    'nav.favorites': 'Избранное',
+                    'nav.cart': 'Корзина',
+                    'nav.feedback': 'Отзывы',
+                    'nav.register': 'Регистрация',
+                    'nav.contacts': 'Контакты',
+                    'mobile.phone': '8 495 123 45 67',
+                    'hero.slide1': 'Смелые цифровые решения со стратегией и мастерством',
+                    'hero.slide2': 'Продуктовое мышление и бренд-сторителлинг для амбициозных команд',
+                    'hero.slide3': 'Интегрированные кампании, motion и веб, которые увлекают людей',
+                    'hero.prev': 'Предыдущий слайд',
+                    'hero.next': 'Следующий слайд',
+                    'hero.slider': 'Слайдер главного экрана',
+                    'hero.dot': 'Перейти к слайду',
+                    'stats.kicker': 'Результаты в цифрах',
+                    'stats.title': 'Кампании, которые двигают показатели',
+                    'stats.subtitle': 'Мы фиксируем каждый запуск, рост и спринт, чтобы команды знали, что реально работает.',
+                    'stats.label1': 'Запущенные проекты в вебе, брендинге и перформансе',
+                    'stats.label2': 'Средний рост CTR после обновления креатива и лендинга',
+                    'stats.label3': 'Ежемесячные конверсии, которые мы отслеживаем в дашбордах аналитики',
+                    'about.brief': 'заполнить бриф',
+                    'about.contact': 'связаться с нами',
+                    'about.title': 'Мы бутиковая студия разработки и продвижения.',
+                    'about.link': 'О студии',
+                    'about.service1': 'Аналитика и стратегия',
+                    'about.service2': 'Дизайн и разработка',
+                    'about.service3': 'Продвижение и реклама',
+                    'about.service4': 'Автоворонки и автоматизация',
+                    'about.service5': 'Продажи',
+                    'about.all': 'Все услуги',
+                    'about.quote': 'К нам приходят, когда нужно сделать сайт вчера, настроить контекстную рекламу или когда хотят начать продажи в инстаграмме.',
+                    'cases.lead': 'Например,',
+                    'cases.store': 'Создали и продолжаем поддерживать интернет-магазин современной техники Store77',
+                    'cases.coke': 'Помогли компании Coca-Cola увеличить количество подписчиков на ютуб-канале',
+                    'cases.client': 'Клиент: Стор77',
+                    'cases.url': 'www. store77. ru',
+                    'cases.metric1': 'уменьшение расходов на рекламную компанию',
+                    'cases.metric2': 'увеличение количества заявок в сутки',
+                    'cases.more': 'Другие работы',
+                    'blog.title': 'Разбираемся в трендах, продвижении и тестировании, советуем, информируем, пишем',
+                    'blog.post': '27 способов рассказать о геморое в вашем инстаграмм-аккаунте',
+                    'blog.more': 'Другие статьи',
+                    'map.title': 'Где мы находимся',
+                    'map.copy': 'Заходите в офис — покажем кейсы, обсудим проект и угостим кофе.',
+                    'map.address': 'Адрес: Москва, ул. Тверская, 22',
+                    'map.phone': 'Телефон: 8 495 123 45 67',
+                    'map.time': 'Время работы: Пн–Пт 10:00–19:00',
+                    'gallery.eyebrow': 'Медиагалерея',
+                    'gallery.title': 'Кадры из последних кампаний и съемок',
+                    'gallery.subtitle': '10 мгновений, показывающих, как мы упаковываем бренды, строим диджитал-направления и снимаем продукты.',
+                    'gallery.next': 'следующее изображение',
+                    'gallery.random': 'случайное изображение',
+                    'gallery.status.pause': 'пауза',
+                    'gallery.status.playing': 'проигрывается',
+                    'gallery.volume': 'громкость',
+                    'footer.title': 'Расскажите нам о своем проекте, задаче, идее, сроках, а мы составим предложение',
+                    'footer.social': 'Мы в соцсетях: vk | fb | in',
+                    'footer.telegram': 'Телеграм',
+                    'footer.whatsapp': 'Ватсап',
+                    'admin.access': 'Админ-панель'
+                },
+                en: {
+                    'meta.title': 'Paradogs — web design and marketing agency',
+                    'nav.services': 'Services',
+                    'nav.portfolio': 'Portfolio',
+                    'nav.catalog': 'Catalog',
+                    'nav.favorites': 'Favorites',
+                    'nav.cart': 'Cart',
+                    'nav.feedback': 'Reviews',
+                    'nav.register': 'Sign up',
+                    'nav.contacts': 'Contacts',
+                    'mobile.phone': '+7 495 123 45 67',
+                    'hero.slide1': 'Bold digital experiences with strategy and craft',
+                    'hero.slide2': 'Product thinking and brand storytelling for ambitious teams',
+                    'hero.slide3': 'Integrated campaigns, motion, and web that move people',
+                    'hero.prev': 'Previous slide',
+                    'hero.next': 'Next slide',
+                    'hero.slider': 'Hero slider',
+                    'hero.dot': 'Go to slide',
+                    'stats.kicker': 'Impact in numbers',
+                    'stats.title': 'Campaigns that move the needle',
+                    'stats.subtitle': 'We track every launch, uplift, and sprint so teams know what actually works.',
+                    'stats.label1': 'Projects shipped across web, brand, and performance',
+                    'stats.label2': 'Average CTR uplift after creative and landing refresh',
+                    'stats.label3': 'Monthly conversions tracked through our analytics dashboards',
+                    'about.brief': 'fill the brief',
+                    'about.contact': 'contact us',
+                    'about.title': 'We are a boutique development and marketing studio.',
+                    'about.link': 'About the studio',
+                    'about.service1': 'Analytics and strategy',
+                    'about.service2': 'Design and development',
+                    'about.service3': 'Promotion and advertising',
+                    'about.service4': 'Funnels and automation',
+                    'about.service5': 'Sales',
+                    'about.all': 'All services',
+                    'about.quote': 'Clients come to us when they need a site yesterday, tune ads fast, or kick off Instagram sales.',
+                    'cases.lead': 'For example,',
+                    'cases.store': 'Built and continue to support the Store77 modern tech shop',
+                    'cases.coke': 'Helped Coca-Cola grow subscribers on their YouTube channel',
+                    'cases.client': 'Client: Store77',
+                    'cases.url': 'www.store77.ru',
+                    'cases.metric1': 'ad spend decrease on the campaign',
+                    'cases.metric2': 'increase in daily leads',
+                    'cases.more': 'More work',
+                    'blog.title': 'We study trends, promotion, testing, advise, inform, and write',
+                    'blog.post': '27 ways to talk about hemorrhoids on your Instagram account',
+                    'blog.more': 'More articles',
+                    'map.title': 'Where to find us',
+                    'map.copy': 'Visit our office — we will show cases, discuss your project, and treat you to coffee.',
+                    'map.address': 'Address: Moscow, Tverskaya st., 22',
+                    'map.phone': 'Phone: +7 495 123 45 67',
+                    'map.time': 'Working hours: Mon–Fri 10:00–19:00',
+                    'gallery.eyebrow': 'Media gallery',
+                    'gallery.title': 'Frames from recent campaigns and shoots',
+                    'gallery.subtitle': '10 moments showing how we wrap brands, build digital, and shoot products.',
+                    'gallery.next': 'next image',
+                    'gallery.random': 'random image',
+                    'gallery.status.pause': 'paused',
+                    'gallery.status.playing': 'playing',
+                    'gallery.volume': 'volume',
+                    'footer.title': 'Tell us about your project, task, idea, timing, and we will prepare a proposal',
+                    'footer.social': 'We are on social media: vk | fb | in',
+                    'footer.telegram': 'Telegram',
+                    'footer.whatsapp': 'WhatsApp',
+                    'admin.access': 'Admin panel'
+                }
+            };
+
+            const bindings = {
+                'nav.services': ['.header-nav--left a[href="#services"]', '.mobile-menu__link[href="#services"]'],
+                'nav.portfolio': ['.header-nav--left a[href="#portfolio"]', '.mobile-menu__link[href="#portfolio"]'],
+                'nav.catalog': ['.header-nav--right a[href="catalog.html"]', '.mobile-menu__link[href="catalog.html"]'],
+                'nav.favorites': ['.header-nav--right a[href="favorites.html"]', '.mobile-menu__link[href="favorites.html"]'],
+                'nav.cart': ['.header-nav--right a[href="cart.html"]', '.mobile-menu__link[href="cart.html"]'],
+                'nav.feedback': ['.header-nav--right a[href="feedback.html"]', '.mobile-menu__link[href="feedback.html"]'],
+                'nav.register': ['.header-nav--right a[href="register.html"]', '.mobile-menu__link[href="register.html"]'],
+                'nav.contacts': ['.header-nav--right a[href="#contacts"]', '.mobile-menu__link[href="#contacts"]'],
+                'mobile.phone': ['.mobile-menu__link--phone'],
+                'stats.kicker': ['.stats-kicker'],
+                'stats.title': ['.stats-title'],
+                'stats.subtitle': ['.stats-subtitle'],
+                'stats.label1': ['.stat-card:nth-child(1) .stat-label'],
+                'stats.label2': ['.stat-card:nth-child(2) .stat-label'],
+                'stats.label3': ['.stat-card:nth-child(3) .stat-label'],
+                'about.brief': ['.about-nav a[href="#brief"]'],
+                'about.contact': ['.about-nav a[href="#contact"]'],
+                'about.title': ['.about-title'],
+                'about.link': ['.about-left .link-underline'],
+                'about.service1': ['.services-list p:nth-child(1)'],
+                'about.service2': ['.services-list p:nth-child(2)'],
+                'about.service3': ['.services-list p:nth-child(3)'],
+                'about.service4': ['.services-list p:nth-child(4)'],
+                'about.service5': ['.services-list p:nth-child(5)'],
+                'about.all': ['.about-right .link-underline'],
+                'about.quote': ['.about-quote'],
+                'cases.lead': ['.case-item.case-yellow h1'],
+                'cases.store': ['.case-item.case-yellow h3'],
+                'cases.coke': ['.case-item.case-red h3'],
+                'cases.client': ['.case-label'],
+                'cases.url': ['.case-url a'],
+                'cases.metric1': ['.case-metrics .metric:nth-child(1) p'],
+                'cases.metric2': ['.case-metrics .metric:nth-child(2) p'],
+                'cases.more': ['.case-footer .link-underline'],
+                'blog.title': ['.blog-title'],
+                'blog.post': ['.blog-post-title'],
+                'blog.more': ['.blog > .container > .link-underline'],
+                'map.title': ['.map-copy h2'],
+                'map.copy': ['.map-copy p'],
+                'map.address': ['.map-contacts span:nth-child(1)'],
+                'map.time': ['.map-contacts span:nth-child(3)'],
+                'gallery.eyebrow': ['.media-gallery__eyebrow'],
+                'gallery.title': ['.media-gallery__title'],
+                'gallery.subtitle': ['.media-gallery__subtitle'],
+                'gallery.next': ['[data-gallery-next]'],
+                'gallery.random': ['[data-gallery-random]'],
+                'gallery.status.pause': ['[data-gallery-status]'],
+                'gallery.volume': ['.volume-label'],
+                'footer.title': ['.footer-title'],
+                'footer.social': ['.footer-col:last-child .footer-text'],
+                'footer.telegram': ['.footer-links__row a:nth-child(1)'],
+                'footer.whatsapp': ['.footer-links__row a:nth-child(2)'],
+                'admin.access': ['#admin-access-btn']
+            };
+
+            let currentLang = localStorage.getItem('lang') === 'en' ? 'en' : 'ru';
+
+            const t = (key) => (translations[currentLang] || translations.ru)[key] || '';
+
+            const applyLanguage = (lang) => {
+                currentLang = lang === 'en' ? 'en' : 'ru';
+                const dict = translations[currentLang];
+                document.documentElement.lang = currentLang;
+                if (dict['meta.title']) document.title = dict['meta.title'];
+
+                Object.entries(bindings).forEach(([key, selectors]) => {
+                    selectors.forEach((selector) => {
+                        const el = document.querySelector(selector);
+                        if (!el) return;
+                        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                            if (el.placeholder && dict[key]) el.placeholder = dict[key];
+                        } else if (dict[key]) {
+                            el.textContent = dict[key];
+                        }
+                    });
+                });
+
+                const phoneSpan = document.querySelector('.map-contacts span:nth-child(2)');
+                if (phoneSpan) {
+                    const phoneLink = phoneSpan.querySelector('a');
+                    const phoneNumber = dict['mobile.phone'] || phoneLink?.textContent || '';
+                    const phoneLabel = (dict['map.phone'] || 'Телефон:').split(':')[0];
+                    const href = phoneLink?.getAttribute('href') || 'tel:+74951234567';
+                    phoneSpan.innerHTML = `${phoneLabel}: <a href="${href}">${phoneNumber}</a>`;
+                }
+
+                const heroTitle = document.querySelector('.hero-title');
+                const heroSlides = document.querySelectorAll('.hero-slide');
+                heroSlides.forEach((slide, idx) => {
+                    const key = `hero.slide${idx + 1}`;
+                    if (dict[key]) {
+                        slide.setAttribute('data-title', dict[key]);
+                        if (slide.classList.contains('is-active') && heroTitle) {
+                            heroTitle.textContent = dict[key];
+                        }
+                    }
+                });
+
+                const prevBtn = document.querySelector('[data-hero-prev]');
+                const nextBtn = document.querySelector('[data-hero-next]');
+                prevBtn?.setAttribute('aria-label', dict['hero.prev'] || '');
+                nextBtn?.setAttribute('aria-label', dict['hero.next'] || '');
+
+                const heroDots = document.querySelectorAll('.dot');
+                heroDots.forEach((dot, index) => {
+                    const label = dict['hero.dot'] || '';
+                    dot.setAttribute('aria-label', `${label} ${index + 1}`.trim());
+                });
+
+                const dotsContainer = document.querySelector('.hero-dots');
+                dotsContainer?.setAttribute('aria-label', dict['hero.slider'] || '');
+
+                const statusEl = document.querySelector('[data-gallery-status]');
+                if (statusEl) statusEl.textContent = dict['gallery.status.pause'] || statusEl.textContent;
+
+                const langLabel = document.querySelector('[data-lang-label]');
+                if (langLabel) langLabel.textContent = currentLang.toUpperCase();
+                const toggleControl = document.querySelector('[data-lang-toggle]');
+                toggleControl?.setAttribute('aria-label', currentLang === 'ru' ? 'Переключить язык' : 'Switch language');
+
+                localStorage.setItem('lang', currentLang);
+            };
+
+            const toggleBtn = document.querySelector('[data-lang-toggle]');
+            toggleBtn?.addEventListener('click', () => {
+                const next = currentLang === 'ru' ? 'en' : 'ru';
+                applyLanguage(next);
+            });
+
+            applyLanguage(currentLang);
+
+            window.i18n = {
+                t,
+                apply: applyLanguage,
+                get lang() {
+                    return currentLang;
+                }
+            };
+        })();
+    </script>
     <script src="auth.js"></script>
     <script src="admin-check.js"></script>
     <script src="menu.js"></script>
@@ -477,19 +758,20 @@
             let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
             if (activeIndex < 0) activeIndex = 0;
 
-            const dots = [];
-            if (dotsContainer) {
-                dotsContainer.innerHTML = '';
-                slides.forEach((slide, index) => {
-                    const dot = document.createElement('button');
-                    dot.className = 'dot';
-                    dot.type = 'button';
-                    dot.dataset.slideIndex = String(index);
-                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                    dotsContainer.appendChild(dot);
-                    dots.push(dot);
-                });
-            }
+                const dots = [];
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    slides.forEach((slide, index) => {
+                        const dot = document.createElement('button');
+                        dot.className = 'dot';
+                        dot.type = 'button';
+                        dot.dataset.slideIndex = String(index);
+                        const dotLabel = (window.i18n?.t('hero.dot') || 'Перейти к слайду').trim();
+                        dot.setAttribute('aria-label', `${dotLabel} ${index + 1}`);
+                        dotsContainer.appendChild(dot);
+                        dots.push(dot);
+                    });
+                }
 
             const setTitle = (slide) => {
                 const text = slide.getAttribute('data-title');
@@ -753,7 +1035,9 @@
 
             const setStatus = (state) => {
                 if (!statusEl) return;
-                statusEl.textContent = state === 'playing' ? 'проигрывается' : 'пауза';
+                const pauseText = window.i18n?.t('gallery.status.pause') || 'пауза';
+                const playText = window.i18n?.t('gallery.status.playing') || 'проигрывается';
+                statusEl.textContent = state === 'playing' ? playText : pauseText;
                 statusEl.classList.toggle('is-playing', state === 'playing');
             };
 
