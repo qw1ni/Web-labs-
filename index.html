@@ -265,6 +265,95 @@
         </div>
     </section>
 
+    <section class="media-gallery" id="media-gallery">
+        <div class="container">
+            <div class="media-gallery__header">
+                <div class="media-gallery__headings">
+                    <p class="media-gallery__eyebrow">Медиагалерея</p>
+                    <h2 class="media-gallery__title">Кадры из последних кампаний и съемок</h2>
+                    <p class="media-gallery__subtitle">10 мгновений, показывающих, как мы упаковываем бренды, строим digital и снимаем продукты.</p>
+                </div>
+                <div class="media-gallery__controls">
+                    <div class="media-gallery__controls-row">
+                        <button class="gallery-nav-btn" type="button" data-gallery-next>следующее изображение</button>
+                        <button class="gallery-nav-btn gallery-nav-btn--outline" type="button" data-gallery-random>случайно изображение</button>
+                        <div class="media-gallery__status" data-gallery-status>пауза</div>
+                    </div>
+                    <div class="media-gallery__volume">
+                        <label for="gallery-volume" class="volume-label">громкость</label>
+                        <div class="volume-slider">
+                            <input type="range" id="gallery-volume" min="0" max="100" step="1" value="70" data-gallery-volume>
+                            <span class="volume-value" data-gallery-volume-value>70%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media-gallery__grid">
+                <div class="media-gallery__main">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
+                        alt="Работа с командой над брендингом" data-gallery-main>
+                    <div class="media-gallery__meta">
+                        <span class="media-gallery__label" data-gallery-label>Работа с командой над брендингом</span>
+                        <span class="media-gallery__counter" data-gallery-counter>1 / 10</span>
+                    </div>
+                </div>
+                <div class="media-gallery__thumbs" role="list">
+                    <button class="media-thumb is-active" type="button" data-gallery-index="0"
+                        data-gallery-label="Работа с командой над брендингом">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+                            alt="Работа с командой над брендингом">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="1"
+                        data-gallery-label="Диджитал-разработка и прототипирование">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                            alt="Диджитал-разработка и прототипирование">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="2"
+                        data-gallery-label="Презентация маркетинговых метрик">
+                        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=600&q=80"
+                            alt="Презентация маркетинговых метрик">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="3"
+                        data-gallery-label="Планирование клиентского опыта">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80"
+                            alt="Планирование клиентского опыта">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="4"
+                        data-gallery-label="Съемка продукта для рекламы">
+                        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=600&q=80"
+                            alt="Съемка продукта для рекламы">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="5"
+                        data-gallery-label="Рабочее пространство дизайнеров">
+                        <img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?auto=format&fit=crop&w=600&q=80"
+                            alt="Рабочее пространство дизайнеров">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="6"
+                        data-gallery-label="Мозговой штурм над стратегией">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+                            alt="Мозговой штурм над стратегией">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="7"
+                        data-gallery-label="Дашборд с аналитикой кампании">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80"
+                            alt="Дашборд с аналитикой кампании">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="8"
+                        data-gallery-label="Подготовка контента и сценария">
+                        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80"
+                            alt="Подготовка контента и сценария">
+                    </button>
+                    <button class="media-thumb" type="button" data-gallery-index="9"
+                        data-gallery-label="Креативный штурм в офисе">
+                        <img src="https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=600&q=80"
+                            alt="Креативный штурм в офисе">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" id="contacts">
         <div class="container">
@@ -442,6 +531,170 @@
                     close();
                 }
             });
+        })();
+
+        (() => {
+            const gallery = document.querySelector('.media-gallery');
+            if (!gallery) return;
+
+            const mainImage = gallery.querySelector('[data-gallery-main]');
+            const counter = gallery.querySelector('[data-gallery-counter]');
+            const label = gallery.querySelector('[data-gallery-label]');
+            const nextBtn = gallery.querySelector('[data-gallery-next]');
+            const randomBtn = gallery.querySelector('[data-gallery-random]');
+            const statusEl = gallery.querySelector('[data-gallery-status]');
+            const volumeSlider = gallery.querySelector('[data-gallery-volume]');
+            const volumeValue = gallery.querySelector('[data-gallery-volume-value]');
+            const thumbButtons = Array.from(gallery.querySelectorAll('[data-gallery-index]'));
+
+            if (!mainImage || !thumbButtons.length) return;
+
+            const noteFrequencies = [261.63, 293.66, 329.63, 349.23, 392, 440, 493.88, 523.25, 587.33, 659.25];
+            let audioCtx;
+            let masterGain;
+            let statusTimeout;
+            let fadeTimeout;
+            const NOTE_DURATION = 0.5;
+            const FADE_DURATION = 550; // ms
+
+            const items = thumbButtons.map((btn, index) => {
+                const img = btn.querySelector('img');
+                const altText = img?.alt?.trim() || `Кадр ${index + 1}`;
+                const src = img?.src || '';
+                const caption = btn.dataset.galleryLabel || altText;
+                return { src, alt: altText, label: caption };
+            });
+
+            let activeIndex = 0;
+            let initialized = false;
+
+            const setStatus = (state) => {
+                if (!statusEl) return;
+                statusEl.textContent = state === 'playing' ? 'проигрывается' : 'пауза';
+                statusEl.classList.toggle('is-playing', state === 'playing');
+            };
+
+            const getVolume = () => {
+                const raw = volumeSlider ? Number(volumeSlider.value) : 70;
+                return Math.min(Math.max(raw, 0), 100) / 100;
+            };
+
+            const updateVolumeLabel = () => {
+                if (volumeValue && volumeSlider) {
+                    volumeValue.textContent = `${volumeSlider.value}%`;
+                }
+            };
+
+            const ensureAudio = () => {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContextClass) return null;
+                if (!audioCtx) {
+                    audioCtx = new AudioContextClass();
+                    masterGain = audioCtx.createGain();
+                    masterGain.gain.value = getVolume();
+                    masterGain.connect(audioCtx.destination);
+                }
+                return audioCtx;
+            };
+
+            const playNoteForIndex = (index) => {
+                const frequency = noteFrequencies[index % noteFrequencies.length];
+                if (!frequency) return;
+                if (!ensureAudio()) return;
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (masterGain) masterGain.gain.setValueAtTime(getVolume(), audioCtx.currentTime);
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = frequency;
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.exponentialRampToValueAtTime(0.35, now + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + NOTE_DURATION - 0.05);
+                if (masterGain) {
+                    osc.connect(gain).connect(masterGain);
+                } else {
+                    osc.connect(gain).connect(audioCtx.destination);
+                }
+                osc.start(now);
+                osc.stop(now + NOTE_DURATION);
+            };
+
+            const updateImage = (current, useFade = true) => {
+                if (!useFade || !initialized) {
+                    mainImage.src = current.src;
+                    mainImage.alt = current.alt;
+                    mainImage.classList.remove('is-fade-out');
+                    return;
+                }
+                clearTimeout(fadeTimeout);
+                mainImage.classList.add('is-fade-out');
+
+                fadeTimeout = window.setTimeout(() => {
+                    let fallback;
+                    const handleLoad = () => {
+                        mainImage.removeEventListener('load', handleLoad);
+                        if (fallback) clearTimeout(fallback);
+                        requestAnimationFrame(() => {
+                            mainImage.classList.remove('is-fade-out');
+                        });
+                    };
+                    mainImage.addEventListener('load', handleLoad);
+                    fallback = window.setTimeout(handleLoad, FADE_DURATION * 1.1);
+                    mainImage.src = current.src;
+                    mainImage.alt = current.alt;
+                }, FADE_DURATION * 0.45);
+            };
+
+            const setActive = (index, shouldPlay = false) => {
+                const safeIndex = (index + items.length) % items.length;
+                activeIndex = safeIndex;
+                thumbButtons.forEach((btn, idx) => {
+                    btn.classList.toggle('is-active', idx === activeIndex);
+                });
+                const current = items[activeIndex];
+                updateImage(current);
+                if (label) label.textContent = current.label;
+                if (counter) counter.textContent = `${activeIndex + 1} / ${items.length}`;
+                if (shouldPlay) {
+                    clearTimeout(statusTimeout);
+                    setStatus('playing');
+                    playNoteForIndex(activeIndex);
+                    statusTimeout = window.setTimeout(() => setStatus('pause'), NOTE_DURATION * 1000 + 80);
+                } else {
+                    setStatus('pause');
+                }
+                initialized = true;
+            };
+
+            thumbButtons.forEach((btn, idx) => {
+                btn.addEventListener('click', () => setActive(idx, true));
+            });
+
+            nextBtn?.addEventListener('click', () => setActive(activeIndex + 1, true));
+
+            randomBtn?.addEventListener('click', () => {
+                if (items.length < 2) {
+                    setActive(activeIndex, true);
+                    return;
+                }
+                let nextIndex = activeIndex;
+                let guard = 0;
+                while (nextIndex === activeIndex && guard < 8) {
+                    nextIndex = Math.floor(Math.random() * items.length);
+                    guard += 1;
+                }
+                setActive(nextIndex, true);
+            });
+
+            volumeSlider?.addEventListener('input', () => {
+                updateVolumeLabel();
+                if (!audioCtx || !masterGain) return;
+                masterGain.gain.setValueAtTime(getVolume(), audioCtx.currentTime);
+            });
+            updateVolumeLabel();
+
+            setActive(0);
         })();
     </script>
 </body>
