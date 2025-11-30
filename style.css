@@ -941,10 +941,12 @@ body.modal-open {
         transform: translateY(0);
         opacity: 0.2;
     }
+
     40% {
         transform: translateY(-8px);
         opacity: 1;
     }
+
     100% {
         transform: translateY(0);
         opacity: 0.25;
@@ -955,9 +957,11 @@ body.modal-open {
     0% {
         transform: translateY(0) scale(1);
     }
+
     50% {
         transform: translateY(-16px) scale(1.04);
     }
+
     100% {
         transform: translateY(0) scale(1);
     }
@@ -991,6 +995,7 @@ body.modal-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .preloader,
     .preloader *,
     .hero-slide {
@@ -2338,94 +2343,233 @@ body.modal-open {
 
 /* Animation Keyframes */
 @keyframes heroGlow {
-    0% { opacity: 0.4; transform: scale(1) translateX(0); }
-    50% { opacity: 0.55; transform: scale(1.05) translateX(-10px); }
-    100% { opacity: 0.4; transform: scale(1.08) translateX(10px); }
+    0% {
+        opacity: 0.4;
+        transform: scale(1) translateX(0);
+    }
+
+    50% {
+        opacity: 0.55;
+        transform: scale(1.05) translateX(-10px);
+    }
+
+    100% {
+        opacity: 0.4;
+        transform: scale(1.08) translateX(10px);
+    }
 }
 
 @keyframes caretBlink {
-    0%, 40% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes dotBounce {
-    0% { transform: translateY(0) scale(1); opacity: 0.6; }
-    50% { transform: translateY(-8px) scale(1.1); opacity: 1; }
-    100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
 }
 
 @keyframes lineSweep {
-    0% { transform: scaleX(0.6); }
-    50% { transform: scaleX(1); }
-    100% { transform: scaleX(0.72); }
+    0% {
+        transform: scaleX(0.6);
+    }
+
+    50% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0.72);
+    }
 }
 
 @keyframes riseIn {
-    0% { opacity: 0; transform: translateY(14px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes floaty {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-16px) rotate(-1deg); }
-    100% { transform: translateY(6px) rotate(1deg); }
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateY(6px) rotate(1deg);
+    }
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes underlinePulse {
-    0% { transform: translateX(-50%) scaleX(0.6); opacity: 0.5; }
-    50% { transform: translateX(-50%) scaleX(1); opacity: 1; }
-    100% { transform: translateX(-50%) scaleX(0.7); opacity: 0.75; }
+    0% {
+        transform: translateX(-50%) scaleX(0.6);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) scaleX(0.7);
+        opacity: 0.75;
+    }
 }
 
 @keyframes focusGlow {
-    0% { box-shadow: 0 0 0 0 rgba(0, 46, 255, 0.32); }
-    50% { box-shadow: 0 0 0 10px rgba(0, 46, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 46, 255, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 46, 255, 0.32);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(0, 46, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 46, 255, 0);
+    }
 }
 
 @keyframes pulseDot {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.6; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
 }
 
 @keyframes pulseRing {
-    0% { transform: scale(0.8); opacity: 0.6; }
-    60% { transform: scale(1.08); opacity: 0.28; }
-    100% { transform: scale(1.2); opacity: 0; }
+    0% {
+        transform: scale(0.8);
+        opacity: 0.6;
+    }
+
+    60% {
+        transform: scale(1.08);
+        opacity: 0.28;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
 }
 
 @keyframes orbitTrack {
-    0% { transform: translate(-50%, -50%) rotate(0deg) translateX(56px); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) translateX(56px); }
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(56px);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(56px);
+    }
 }
 
 @keyframes bounceCard {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px) scale(1.01); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px) scale(1.01);
+    }
 }
 
 @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes shineSweep {
-    0% { transform: translateX(-120%); }
-    50% { transform: translateX(40%); }
-    100% { transform: translateX(120%); }
+    0% {
+        transform: translateX(-120%);
+    }
+
+    50% {
+        transform: translateX(40%);
+    }
+
+    100% {
+        transform: translateX(120%);
+    }
 }
 
 @keyframes rippleWave {
-    0% { transform: scale(0); opacity: 0.6; }
-    70% { transform: scale(1.6); opacity: 0.3; }
-    100% { transform: scale(2); opacity: 0; }
+    0% {
+        transform: scale(0);
+        opacity: 0.6;
+    }
+
+    70% {
+        transform: scale(1.6);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
 }
 
 @media (min-width: 1100px) {
@@ -3085,9 +3229,9 @@ body.modal-open {
     border: 2px solid var(--black);
     border-radius: 0;
     overflow: hidden;
-    transition: transform 0.3s cubic-bezier(.19, 1, .22, 1), 
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
+    transition: transform 0.3s cubic-bezier(.19, 1, .22, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -4620,13 +4764,13 @@ body.modal-open {
     transform: scale(1.1);
 }
 
-.rating-group input[type="radio"]:checked + .rating-label {
+.rating-group input[type="radio"]:checked+.rating-label {
     background-color: var(--blue-primary);
     border-color: var(--blue-primary);
     color: var(--white);
 }
 
-.rating-group input[type="radio"]:checked + .rating-label::after {
+.rating-group input[type="radio"]:checked+.rating-label::after {
     content: '★';
     position: absolute;
 }
@@ -4943,4 +5087,41 @@ body.modal-open {
         padding: 12px 20px;
         font-size: 12px;
     }
+}
+
+/* как у тебя есть */
+html.theme-dark {
+    filter: invert(1) hue-rotate(180deg);
+    background: #000;
+    color-scheme: dark;
+}
+
+html.theme-dark .hero,
+html.theme-dark .media-gallery,
+html.theme-dark .blog {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+html.theme-dark img,
+html.theme-dark video,
+html.theme-dark svg,
+html.theme-dark iframe {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* --- ДОБАВЬ НИЖЕ: отключаем фильтр для медиа внутри hero/media-gallery/blog --- */
+
+html.theme-dark .hero img,
+html.theme-dark .hero video,
+html.theme-dark .hero svg,
+html.theme-dark .hero iframe,
+html.theme-dark .media-gallery img,
+html.theme-dark .media-gallery video,
+html.theme-dark .media-gallery svg,
+html.theme-dark .media-gallery iframe,
+html.theme-dark .blog img,
+html.theme-dark .blog video,
+html.theme-dark .blog svg,
+html.theme-dark .blog iframe {
+    filter: none; /* при желании можно подстраховаться: filter: none !important; */
 }
