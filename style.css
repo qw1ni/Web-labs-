@@ -1273,6 +1273,59 @@ body.modal-open {
     isolation: isolate;
 }
 
+.hero-parallax {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: absolute;
+    inset: -18%;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+.parallax-layer--back {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(0, 46, 255, 0.18), transparent 42%),
+        radial-gradient(circle at 78% 70%, rgba(222, 211, 35, 0.18), transparent 38%),
+        linear-gradient(140deg, rgba(0, 0, 0, 0.24), transparent 60%);
+    filter: blur(8px);
+    opacity: 0.85;
+}
+
+.parallax-layer--mid {
+    background:
+        radial-gradient(60% 80% at 26% 40%, rgba(255, 255, 255, 0.08), transparent 70%),
+        radial-gradient(22% 32% at 78% 32%, rgba(0, 46, 255, 0.16), transparent 70%),
+        radial-gradient(18% 26% at 62% 78%, rgba(226, 45, 38, 0.16), transparent 70%);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+}
+
+.parallax-layer--front {
+    background:
+        radial-gradient(16% 22% at 50% 38%, rgba(255, 255, 255, 0.18), transparent 56%),
+        repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.16) 0 2px, transparent 2px 12px),
+        radial-gradient(12% 18% at 22% 82%, rgba(0, 46, 255, 0.24), transparent 60%);
+    opacity: 0.75;
+}
+
+.parallax-layer--front::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    bottom: 16%;
+    right: 18%;
+    background: radial-gradient(circle at 40% 40%, rgba(222, 211, 35, 0.28), transparent 60%);
+    filter: blur(6px);
+    opacity: 0.9;
+}
+
 .hero-slider {
     position: absolute;
     inset: 0;
@@ -2312,6 +2365,10 @@ body.modal-open {
         min-height: 820px;
     }
 
+    .hero-parallax {
+        inset: -10%;
+    }
+
     .hero-title {
         left: 56px;
         max-width: 460px;
@@ -2404,6 +2461,10 @@ body.modal-open {
     .hero {
         height: 720px;
         min-height: 720px;
+    }
+
+    .hero-parallax {
+        inset: -12%;
     }
 
     .hero-title {
@@ -2582,6 +2643,10 @@ body.modal-open {
         height: auto;
     }
 
+    .hero-parallax {
+        inset: -10%;
+    }
+
     .app-modal__dialog {
         width: min(94vw, 720px);
         padding: 22px;
@@ -2738,6 +2803,10 @@ body.modal-open {
 
     .hero {
         min-height: 520px;
+    }
+
+    .hero-parallax {
+        inset: -8%;
     }
 
     .hero-content {

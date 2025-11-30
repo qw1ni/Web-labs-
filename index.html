@@ -45,7 +45,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" data-scroll-accent="rgba(0, 46, 255, 0.35)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.26)">
+    <section class="hero" data-scroll-accent="rgba(0, 46, 255, 0.35)" data-scroll-accent-secondary="rgba(222, 211, 35, 0.26)" data-parallax>
         <div class="hero-slider" aria-live="polite">
             <div class="hero-slide is-active" data-title="Bold digital experiences with strategy and craft"
                 style="--hero-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2100&q=80');">
@@ -56,6 +56,11 @@
             <div class="hero-slide" data-title="Integrated campaigns, motion, and web that move people"
                 style="--hero-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=2100&q=80');">
             </div>
+        </div>
+        <div class="hero-parallax">
+            <div class="parallax-layer parallax-layer--back" data-parallax-layer data-parallax-speed="24"></div>
+            <div class="parallax-layer parallax-layer--mid" data-parallax-layer data-parallax-speed="52"></div>
+            <div class="parallax-layer parallax-layer--front" data-parallax-layer data-parallax-speed="-38"></div>
         </div>
         <div class="hero-content">
             <header class="header header--white">
@@ -592,6 +597,49 @@
                 accentSections.forEach((section) => accentObserver.observe(section));
                 setAccent(accentSections[0]);
             }
+        })();
+
+        (() => {
+            const sections = document.querySelectorAll('[data-parallax]');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!sections.length || prefersReducedMotion) return;
+
+            let ticking = false;
+
+            const applyParallax = () => {
+                const vh = Math.max(window.innerHeight, 1);
+                const width = window.innerWidth || 1920;
+                const mobileFactor = width < 768 ? 0.55 : width < 1100 ? 0.8 : 1;
+
+                sections.forEach((section) => {
+                    const layers = section.querySelectorAll('[data-parallax-layer]');
+                    if (!layers.length) return;
+
+                    const rect = section.getBoundingClientRect();
+                    if (rect.bottom < -vh * 0.25 || rect.top > vh * 1.6) return;
+
+                    const centerDelta = (rect.top + rect.height * 0.5) - vh * 0.5;
+                    const maxSpan = Math.max(vh, rect.height, 1);
+                    layers.forEach((layer) => {
+                        const speed = Number(layer.getAttribute('data-parallax-speed') || 0);
+                        const offset = Math.max(-maxSpan, Math.min(maxSpan, centerDelta)) * speed * 0.0024 * mobileFactor;
+                        layer.style.transform = `translate3d(0, ${offset}px, 0)`;
+                    });
+                });
+
+                ticking = false;
+            };
+
+            const requestTick = () => {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(applyParallax);
+                }
+            };
+
+            window.addEventListener('scroll', requestTick, { passive: true });
+            window.addEventListener('resize', requestTick);
+            applyParallax();
         })();
 
         (() => {
