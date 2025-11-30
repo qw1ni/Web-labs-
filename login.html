@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация - Paradogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mobile-menu-overlay" data-menu-overlay></div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Main menu">
+        <div class="mobile-menu__inner">
+            <a href="index.html#services" class="mobile-menu__link">Services</a>
+            <a href="index.html#portfolio" class="mobile-menu__link">Portfolio</a>
+            <a href="catalog.html" class="mobile-menu__link">Catalog</a>
+            <a href="favorites.html" class="mobile-menu__link">Favorites</a>
+            <a href="cart.html" class="mobile-menu__link">Cart</a>
+            <a href="feedback.html" class="mobile-menu__link">Feedback</a>
+            <a href="register.html" class="mobile-menu__link">Register</a>
+            <a href="index.html#contacts" class="mobile-menu__link">Contacts</a>
+            <a href="tel:+74951234567" class="mobile-menu__link mobile-menu__link--phone">8 495 123 45 67</a>
+        </div>
+    </nav>
+    <!-- Header -->
+    <section class="catalog-hero">
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <button class="header-burger" id="header-burger" aria-label="Open menu" aria-expanded="false"
+                        aria-controls="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="header-left">
+                        <a href="index.html" class="logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                            <span class="logo-text" style="color: black;">PARADOGS</span>
+                        </a>
+                    </div>
+                    <nav class="header-nav header-nav--left">
+                        <a href="catalog.html" style="color: black;">Каталог</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="index.html#portfolio" style="color: black;">Портфолио</a>
+                    </nav>
+                    <nav class="header-nav header-nav--right">
+                        <a href="register.html" style="color: black;">Регистрация</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="index.html#contacts" style="color: black;">Контакты</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="tel:+74951234567" style="color: black;">8 495 123 - 45 - 67</a>
+                    </nav>
+                </div>
+                <div class="header-line" style="background-color: black;"></div>
+            </div>
+        </header>
+
+        <div class="catalog-header-content">
+            <h1 class="catalog-title">Авторизация</h1>
+            <p class="catalog-subtitle">Введите данные, указанные при регистрации, чтобы продолжить покупки</p>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="register-container">
+                <form id="login-form" class="register-form">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Вход в аккаунт</h3>
+
+                        <div class="form-group">
+                            <label for="login-email" class="form-label required">Email</label>
+                            <input type="email" id="login-email" name="login-email" class="form-input" required>
+                            <span class="error-message" id="login-email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login-password" class="form-label required">Пароль</label>
+                            <input type="password" id="login-password" name="login-password" class="form-input" required>
+                            <span class="error-message" id="login-password-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="login-remember" name="login-remember">
+                                <span>Оставаться в системе на этом устройстве</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="error-message" id="login-general-error"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" id="login-btn" class="register-btn" disabled>Войти</button>
+                            <p class="form-hint" style="margin-top: 12px;">Еще нет профиля? <a class="link-underline" href="register.html">Зарегистрируйтесь</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2 class="footer-title">Мы делаем сайты, брендинг, дизайн, сервисы, и не только — главное, что это работает</h2>
+                    <div class="footer-links">
+                        <a href="mailto:project@2dg.ru">project@2dg.ru</a>
+                        <div class="footer-links__row">
+                            <a href="#">telegram</a>
+                            <a href="#">whatsapp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand">
+                        <div class="footer-logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text copyright">c2012-2020</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Минск,<br>проспект Победителей 25<br>офис 314</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Мы в соцсетях: vk | fb | in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="menu.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

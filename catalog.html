@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог услуг - Paradogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mobile-menu-overlay" data-menu-overlay></div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Main menu">
+        <div class="mobile-menu__inner">
+            <a href="index.html#services" class="mobile-menu__link">Services</a>
+            <a href="index.html#portfolio" class="mobile-menu__link">Portfolio</a>
+            <a href="catalog.html" class="mobile-menu__link">Catalog</a>
+            <a href="favorites.html" class="mobile-menu__link">Favorites</a>
+            <a href="cart.html" class="mobile-menu__link">Cart</a>
+            <a href="feedback.html" class="mobile-menu__link">Feedback</a>
+            <a href="register.html" class="mobile-menu__link">Register</a>
+            <a href="index.html#contacts" class="mobile-menu__link">Contacts</a>
+            <a href="tel:+74951234567" class="mobile-menu__link mobile-menu__link--phone">8 495 123 45 67</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="catalog-hero">
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <button class="header-burger" id="header-burger" aria-label="Open menu" aria-expanded="false"
+                        aria-controls="mobile-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="header-left">
+                        <a href="index.html" class="logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                            <span class="logo-text" style="color: black;">PARADOGS</span>
+                        </a>
+                    </div>
+                    <nav class="header-nav header-nav--left">
+                        <a href="index.html#services" style="color: black;">Услуги</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="index.html#portfolio" style="color: black;">Портфолио</a>
+                    </nav>
+                    <nav class="header-nav header-nav--right">
+                        <a href="favorites.html" style="color: black;">Избранное</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="cart.html" style="color: black;">Корзина</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="feedback.html" style="color: black;">Отзывы</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="index.html#contacts" style="color: black;">Контакты</a>
+                        <span class="divider" style="background-color: black;"></span>
+                        <a href="tel:+74951234567" style="color: black;">8 495 123 – 45 – 67</a>
+                    </nav>
+                </div>
+                <div class="header-line" style="background-color: black;"></div>
+            </div>
+        </header>
+
+        <div class="catalog-header-content">
+            <h1 class="catalog-title">Каталог услуг</h1>
+            <p class="catalog-subtitle">Выберите услугу, которая подходит вашему бизнесу</p>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog-section">
+        <div class="container">
+            <!-- Поиск и фильтры -->
+            <div class="catalog-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-input" placeholder="Поиск по названию или описанию...">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 19L14.65 14.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="sort-container">
+                        <label for="sort-select" class="control-label">Сортировка:</label>
+                        <select id="sort-select" class="sort-select">
+                            <option value="">Без сортировки</option>
+                            <option value="price-asc">По цене (возрастание)</option>
+                            <option value="price-desc">По цене (убывание)</option>
+                            <option value="name-asc">По названию (А-Я)</option>
+                            <option value="name-desc">По названию (Я-А)</option>
+                            <option value="rating-asc">По рейтингу (возрастание)</option>
+                            <option value="rating-desc">По рейтингу (убывание)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="categories-container">
+                        <label class="control-label">Категории:</label>
+                        <div class="categories-list" id="categories-list">
+                            <!-- Категории будут сгенерированы через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Расширенные фильтры -->
+                <div class="advanced-filters">
+                    <h3 class="advanced-filters-title">Расширенные фильтры</h3>
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <label for="filter-rating-min" class="filter-label">Рейтинг от:</label>
+                            <input type="number" id="filter-rating-min" class="filter-input" min="0" max="5" step="0.1" placeholder="0">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-rating-max" class="filter-label">Рейтинг до:</label>
+                            <input type="number" id="filter-rating-max" class="filter-input" min="0" max="5" step="0.1" placeholder="5">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-price-min" class="filter-label">Цена от (₽):</label>
+                            <input type="number" id="filter-price-min" class="filter-input" min="0" placeholder="0">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-price-max" class="filter-label">Цена до (₽):</label>
+                            <input type="number" id="filter-price-max" class="filter-input" min="0" placeholder="1000000">
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-duration" class="filter-label">Длительность:</label>
+                            <select id="filter-duration" class="filter-select">
+                                <option value="">Все</option>
+                                <option value="1-2 недели">1-2 недели</option>
+                                <option value="2-3 недели">2-3 недели</option>
+                                <option value="3-4 недели">3-4 недели</option>
+                                <option value="4-5 недель">4-5 недель</option>
+                                <option value="4-6 недель">4-6 недель</option>
+                                <option value="5-6 недель">5-6 недель</option>
+                                <option value="6-8 недель">6-8 недель</option>
+                                <option value="8-12 недель">8-12 недель</option>
+                                <option value="10-14 недель">10-14 недель</option>
+                                <option value="Ежемесячно">Ежемесячно</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="reset-filters-btn" class="reset-filters-btn">Сбросить фильтры</button>
+                </div>
+            </div>
+
+            <div class="catalog-filters">
+                <h2 class="filters-title">Демонстрация методов массивов</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-method="all">Все услуги</button>
+                    <button class="filter-btn" data-method="filter-category">Filter: Категория "Разработка"</button>
+                    <button class="filter-btn" data-method="filter-rating">Filter: Рейтинг ≥ 4.8</button>
+                    <button class="filter-btn" data-method="sort-price">Sort: По цене (возр.)</button>
+                    <button class="filter-btn" data-method="sort-rating">Sort: По рейтингу (убыв.)</button>
+                    <button class="filter-btn" data-method="map">Map: Добавить метку</button>
+                    <button class="filter-btn" data-method="slice">Slice: Первые 7</button>
+                    <button class="filter-btn" data-method="reverse">Reverse: Обратный порядок</button>
+                    <button class="filter-btn" data-method="filter-sort">Filter+Sort: Дизайн по рейтингу</button>
+                    <button class="filter-btn" data-method="filter-duration">Filter: ≤ 4 недель</button>
+                </div>
+            </div>
+            <div id="catalog-container" class="catalog-grid">
+                <!-- Карточки будут сгенерированы через JavaScript -->
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination-container" id="pagination-container">
+                <!-- Пагинация будет сгенерирована через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2 class="footer-title">Расскажите нам о своем проекте, задаче, идее, сроках, а мы составим
+                        предложение</h2>
+                    <div class="footer-links">
+                        <a href="mailto:project@2dg.ru">project@2dg.ru</a>
+                        <div class="footer-links__row">
+                            <a href="#">telegram</a>
+                            <a href="#">whatsapp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-grid">
+                    <div class="footer-col footer-brand">
+                        <div class="footer-logo">
+                            <svg width="158" height="35" viewBox="0 0 158 35" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M18.1613 3.53227H4.10475C4.0437 3.53227 3.9912 3.54734 3.93016 3.54985L0 0V7.67104L0.00732555 7.66728C0.0451742 9.88232 1.86069 11.6642 4.10475 11.6642L18.1613 11.6667C20.431 11.6667 22.2685 9.84465 22.2685 7.59947C22.2685 5.35177 20.4297 3.53227 18.1613 3.53227Z"
+                                    transform="translate(24, 0)" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M45.4826 13.648L35.7582 4.42505C34.9545 3.66167 33.8928 3.29703 32.8407 3.31585C32.8133 3.31585 32.7894 3.30879 32.7643 3.30879H14.4213C14.3066 3.30879 13.4516 3.31703 13.1375 3.36408L9.24914 0V5.98829L1.1751 13.6492C-0.3917 15.1383 -0.3917 17.5485 1.1751 19.0364C2.7431 20.5232 5.28676 20.5232 6.85356 19.0364L15.4017 10.9274H31.2572L39.8053 19.0364C41.3722 20.5232 43.9134 20.5232 45.4826 19.0364C47.0494 17.5485 47.0494 15.136 45.4826 13.648Z"
+                                    transform="translate(0, 15)" fill="black" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text copyright">©2012—2020</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Москва,<br>Авиамоторная 25<br>офис 314</p>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-text">Мы в соцсетях: vk | fb | in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="app-modal product-modal" id="product-modal" aria-hidden="true">
+        <div class="app-modal__overlay" data-close-product></div>
+        <div class="app-modal__dialog">
+            <button class="app-modal__close" aria-label="Закрыть" data-close-product>&times;</button>
+            <div class="product-modal__layout">
+                <div class="product-modal__image">
+                    <img id="product-modal-image" src="" alt="">
+                    <span class="product-modal__tag" id="product-modal-category"></span>
+                </div>
+                <div class="product-modal__body">
+                    <h3 class="product-modal__title" id="product-modal-title"></h3>
+                    <p class="product-modal__description" id="product-modal-description"></p>
+                    <div class="product-modal__meta">
+                        <span class="product-modal__price" id="product-modal-price"></span>
+                        <span class="product-modal__duration" id="product-modal-duration"></span>
+                        <span class="product-modal__rating" id="product-modal-rating"></span>
+                    </div>
+                    <div class="product-modal__features" id="product-modal-features"></div>
+                    <div class="product-modal__footer">
+                        <button class="product-modal__btn" id="product-modal-fav">�?�?���>�?�?��</button>
+                        <button class="product-modal__btn secondary" id="product-modal-cart">�?�?����?��</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+    <script src="catalog.js"></script>
+</body>
+
+</html>
