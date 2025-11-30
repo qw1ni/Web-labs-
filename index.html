@@ -248,6 +248,23 @@
         </div>
     </section>
 
+    <section class="map-section" id="location">
+        <div class="container">
+            <div class="map-copy">
+                <h2>Где мы находимся</h2>
+                <p>Заходите в офис — покажем кейсы, обсудим проект и угостим кофе.</p>
+                <div class="map-contacts">
+                    <span>Адрес: Москва, ул. Тверская, 22</span>
+                    <span>Телефон: <a href="tel:+74951234567">8 495 123 45 67</a></span>
+                    <span>Время работы: Пн–Пт 10:00–19:00</span>
+                </div>
+            </div>
+            <iframe class="map-frame"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.3396038979567!2d37.61749407650767!3d55.75582698055352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5b7432f6f7%3A0xf49161d96b6500b2!2z0JzQuNGI0LrQtdC90YIsINCh0LDRgNC-0LXQvdC40LUgMTAxMDAy!5e0!3m2!1sru!2sru!4v1732916400000!5m2!1sru!2sru"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer" id="contacts">
         <div class="container">
@@ -394,6 +411,37 @@
             dots[activeIndex]?.classList.add('is-active');
             setTitle(slides[activeIndex]);
             restartAuto();
+        })();
+
+        (() => {
+            const modal = document.getElementById('map-modal');
+            const openBtn = document.querySelector('[data-open-map]');
+            const closeEls = modal ? modal.querySelectorAll('[data-close-map]') : [];
+
+            if (!modal || !openBtn) return;
+
+            const open = () => {
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+            };
+
+            const close = () => {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                const anyOpen = document.querySelector('.app-modal.is-open');
+                if (!anyOpen) {
+                    document.body.classList.remove('modal-open');
+                }
+            };
+
+            openBtn.addEventListener('click', open);
+            closeEls.forEach((el) => el.addEventListener('click', close));
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    close();
+                }
+            });
         })();
     </script>
 </body>
